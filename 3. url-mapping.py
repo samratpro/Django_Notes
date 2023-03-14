@@ -12,6 +12,11 @@ urlpatterns = [
 from django.urls import path
 from . import views
 
+
 urlpatterns = [
-    path('', views.home, name='home')  
-] # Home is function name here...
+    path('', views.home, name='home'),  
+    path('contactus', views.contactus, name='contactus'),  
+    path('article', views.article, name='article'),  
+    path('about', views.about, name='about'),  
+]
+# Home is function name here...
