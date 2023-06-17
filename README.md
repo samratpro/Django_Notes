@@ -1,5 +1,5 @@
 # Jinja -HTML
-Required Plugin : Django
+- Required Plugin : Django
 {
   "python.jediEnabled": false,
   "files.autoSave": "afterDelay",
