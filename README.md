@@ -7,7 +7,6 @@
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "editor.minimap.enabled": true,
-  "workbench.colorTheme": "Monokai",
   "editor.largeFileOptimizations": false,
   "html.format.indentInnerHtml": true,
   "html.format.indentHandlebars": true,
