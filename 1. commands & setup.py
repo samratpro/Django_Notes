@@ -34,3 +34,8 @@ python manage.py createsuperuser
 # Important folders..
 templates
 static
+
+# CSS JS support
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<script src="{% static 'myfirst.js' %}"></script>
