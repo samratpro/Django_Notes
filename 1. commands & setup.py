@@ -35,6 +35,9 @@ python manage.py createsuperuser
 templates
 static
 
+# For static update
+python manage.py collectstatic
+
 # CSS JS support
 {% load static %}
 <link rel="stylesheet" href="{% static 'style.css' %}">
