@@ -31,7 +31,7 @@
 
 
 <!-- Current URL condition -->
-{% if request.resolver_match.url_name == "urlname" %} actv {% endif %}    <!-- ......  "urlname" is URL's Function name and "actv" is HTML class --> 
+class="{% if request.resolver_match.url_name == "urlname" %} actv {% endif %}"    <!-- ......  "urlname" is URL's Function name and "actv" is HTML class --> 
 
 
 <!-- For Loop list -->
