@@ -12,9 +12,9 @@ DIRS': [BASE_DIR / 'templates'], # Probbaly 59 line
 
 
 # Static File Connection..   # Probbaly 123 line
-STATIC_URL = 'templates/static/'
+STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    BASE_DIR / "templates/static",
+    BASE_DIR / "static",
 ]
 
 
