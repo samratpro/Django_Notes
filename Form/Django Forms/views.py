@@ -13,13 +13,11 @@ def contactus(request):
             name = form.cleaned_data['name']
             phone = form.cleaned_data['phone']
             message = form.cleaned_data['message']
-            context['name'] = name
-            context['phone'] = phone
-            context['message'] = message
-            
             obj = ContactFormModel(name=name, phone=phone, message=message)
             obj.save()
             return redirect('/contact')   # --------------------------------- Need to import '''redirect''' aslo like '''render'''
+        else:
+            return redirect('/contact')
     else:
         form = ContactForm()
         context = {'test_form':form}
