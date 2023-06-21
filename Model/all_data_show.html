@@ -1,4 +1,13 @@
-# Data Showing in For Loop
+<!-- All Data Showing in For Loop -->
+
 {% for data in all_data  %}
   <li>{{data.data_name}}</li>
 {% endfor %}
+
+<!-- URL For Viewing Single Single Data  -->
+
+
+<!-- URL For Updating Single Data  -->
+<a href="{% url 'update_website' website.id %}">Update</a>
+
+
