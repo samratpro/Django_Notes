@@ -9,7 +9,13 @@ file_name = '''all_data_show.html'''
 
 file_name = '''single_data.html'''
 <!-------------- Single Data Viewing Form '''HTML file''' -------------------------->
-
+<div class="container ps-5">
+  <div class="list-group">
+    <span class="border rounded p-2 m-1"> Date Name : {{single_data.data_name}}</span>
+    <span class="border rounded p-2 m-1"> Data Url : {{single_data.data_url}}</span>
+  </div>
+  <a class="btn btn-primary m-1" href="{% url 'update_data' single_data.id %}" role="button">Edit Data</a> <!---------------- URL For Updating Single Data  -->
+</div>
 
 
 file_name = '''update_data.html'''
@@ -17,16 +23,10 @@ file_name = '''update_data.html'''
 <form action="" method="post" class="w-50">
         {% csrf_token %}
         <div class="form-group">
-            {{ update_form.website_name }}
+            {{ update_form.data_name }}
         </div>
         <div class="form-group">
-            {{ update_form.website_url }}
-        </div>
-        <div class="form-group">
-            {{ update_form.username }}
-        </div>
-        <div class="form-group">
-            {{ update_form.app_pass }}
+            {{ update_form.data_url }}
         </div>
         <div class="form-group">
             <input class="btn btn-primary" type="submit" value="Update">
