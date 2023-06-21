@@ -27,7 +27,7 @@ def update_data(request, data_id):
             data.data_name = update_form.cleaned_data['data_name']
             data.data_url = update_form.cleaned_data['data_url']
             data.save()
-            return redirect('/website')
+            return redirect('/alldata')
     else:
         update_form = WebsiteForms(initial={
             'data_name': website.data_name,
@@ -35,4 +35,10 @@ def update_data(request, data_id):
         })
     context = {'update_form': update_form,'data_id': data_id}
     return render(request, template, context)
+
+# Delete Data ...................................................
+def delete_data(request, data_id):
+    data = WesiteModel.objects.get(pk=data_id)
+    data.delete()
+    return redirect('/alldata')
 
