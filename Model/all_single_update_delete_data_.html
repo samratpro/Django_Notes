@@ -1,0 +1,29 @@
+<!------------ All Data Showing in For Loop --------------->
+{% for data in all_data  %}
+  <li>{{data.data_name}}</li>
+  <a href="{% url 'single_data' data.id %}"> View </a>   <!------------------ URL For Viewing Single Data  -->
+  <a href="{% url 'update_data' data.id %}"> Update </a> <!----------------- URL For Updating Single Data  -->
+{% endfor %}
+
+
+<!-------------- Data Updating Form, it will have in different '''HTML file''' -------------------------->
+<form action="" method="post" class="w-50">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ update_form.website_name }}
+        </div>
+        <div class="form-group">
+            {{ update_form.website_url }}
+        </div>
+        <div class="form-group">
+            {{ update_form.username }}
+        </div>
+        <div class="form-group">
+            {{ update_form.app_pass }}
+        </div>
+        <div class="form-group">
+            <input class="btn btn-primary" type="submit" value="Update">
+        </div>
+    </form>
+
+
