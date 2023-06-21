@@ -1,3 +1,4 @@
+file_name = '''all_data_show.html'''
 <!------------ All Data Showing in For Loop --------------->
 {% for data in all_data  %}
   <li>{{data.data_name}}</li>
@@ -6,6 +7,12 @@
 {% endfor %}
 
 
+file_name = '''single_data.html'''
+<!-------------- Single Data Viewing Form '''HTML file''' -------------------------->
+
+
+
+file_name = '''update_data.html'''
 <!-------------- Data Updating Form, it will have in different '''HTML file''' -------------------------->
 <form action="" method="post" class="w-50">
         {% csrf_token %}
