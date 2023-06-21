@@ -14,8 +14,8 @@ def AllDataShow(request):
 
 
 # Update Data ...................................................
-def update_website(request, website_id):
-    template = "update_website.html"
+def update_data(request, website_id):
+    template = "update_data.html"
     website = WesiteModel.objects.get(pk=website_id)
     if request.method == "POST":
         update_form = WebsiteForms(request.POST)
