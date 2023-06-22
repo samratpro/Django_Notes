@@ -1,6 +1,17 @@
 # General Query All Data
 from .models import *
 
+"""
+
+MyModel.objects.all()                                  Note: ----------- Get All data
+MyModel.objects.filter(field=value)                    Note: ----------- Filter can be used for any backend continuous logic until getting certain data
+
+*** Render data from the model isn't affect your POST or GET method Runtime,
+VT(view.py to temple.html) data will behave from the User action
+MTV(Models Views Template) data won't behave from the User action without Logic
+***
+"""
+
 # Save data .....................................
 def website(request):
     template = 'add_data_.html'
