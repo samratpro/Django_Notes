@@ -32,9 +32,7 @@ def single_data(request, data_id):
     template = "single_data.html"
     sigle_data = WesiteModel.objects.get(pk=data_id)
     context = {'sigle_data': sigle_data,'data_id': data_id}
-    return render(request, template, context)  
-
-
+    return render(request, template, context)
 
 # Update Data ...................................................
 def update_data(request, data_id):
