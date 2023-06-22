@@ -2,13 +2,23 @@
 from .models import *
 
 """
+All Document: https://github.com/samratpro/Django-Component/blob/master/Model/queryset.md
+MyModel.objects.all()                         Note: --Get All data
+MyModel.objects.filter(field=value)           Note: --Filter return **List/multiple data**, It can be used for any backend continuous logic until getting certain data
+MyModel.objects.get(field=value)              Note: --Get return **Single Data**, 
 
-MyModel.objects.all()                                  Note: ----------- Get All data
-MyModel.objects.filter(field=value)                    Note: ----------- Filter can be used for any backend continuous logic until getting certain data
+Here filed list: 
+            Document: https://docs.djangoproject.com/en/4.2/ref/models/querysets/#id4
+            pk = Primary Key
+            id = Identity Like PK
+            custom_name = Our created custom variable name
+            custom_name__contains = custom_name is variable
+            id__in= [1, 3, 4] *** it can take multiple or Single id values
+            custom_name__in =  *** It can take multiple or Single id values       
 
-*** Render data from the model isn't affect your POST or GET method Runtime,
-VT(view.py to temple.html) data will behave from the User action
-MTV(Models Views Template) data won't behave from the User action without Logic
+*** Render data from the Model isn't affect your POST or GET method Runtime,
+VT(view.py to temple.html) data will affect by the User action,
+MTV(Models Views Template) data won't affect by the User action ..without Logic..,
 ***
 """
 
