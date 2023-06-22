@@ -5,6 +5,7 @@ from . import views
 urlpatterns = [
     path('', views.home, name='home'),   
     path('alldata', views.alldata, name='alldata'),
-    path('single_data/<website_id>', views.update_website, name='single_data'),  
-    path('update_data/<website_id>', views.update_website, name='update_data'),  
+    path('single_data/<data_id>', views.single_data, name='single_data'),  
+    path('update_data/<data_id>', views.update_data, name='update_data'),  
+    path('delete_data/<data_id>', views.delete_data, name='delete_data'),  
 ]
