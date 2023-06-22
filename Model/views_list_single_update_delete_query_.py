@@ -1,6 +1,25 @@
 # General Query All Data
 from .models import *
 
+# Save data .....................................
+def website(request):
+    template = 'add_data_.html'
+    if request.method == 'POST':
+        form = DataForms(request.POST)
+        context = {'data_form':form}
+        if form.is_valid():
+            data_name = form.cleaned_data['data_name']
+            data_url = form.cleaned_data['data_url']
+            obj = DataModel(data_name=data_name, data_url=data_url)
+            obj.save()
+            return redirect('/alldata')
+        else:
+            return redirect('/add_data')
+    else:
+        form = DataForms()
+        context = {'data_form':form}
+        return render(request, template, context=context)
+
 # Showing all data, like post .....................................................
 def AllDataShow(request):
     all_data = WesiteModel.objects.all()
