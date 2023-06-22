@@ -27,17 +27,17 @@
 | `none`                   | `MyModel.objects.none()`                    | Returns an empty QuerySet                                                        |
 | `union`                  | `queryset1.union(queryset2)`                | Returns a QuerySet that is the union of two QuerySets                            |
 
-Here filed list: 
+# Here filed list: 
             Document: https://docs.djangoproject.com/en/4.2/ref/models/querysets/#id4
-            pk = Primary Key
-            id = Identity Like PK
-            custom_name = Our created custom variable name
-            custom_name__startswith = custom_name is variable
-            custom_name__istartswith = custom_name is variable, Case-insensitive starts-with
-            custom_name__endswith =
-            custom_name__iendswith = Case-insensitive starts-with
-            custom_name__contains = custom_name is variable
-            custom_name__icontains = Case-insensitive containment test
-            id__in= [1, 3, 4] *** it can take multiple or Single id values
-            custom_name__in =  *** it can take multiple or Single id values
-            id__gt = Greater than, lt(less than), lte(Less than or equal to.) thes only work for integer value    
+            | pk = | Primary Key
+            | id = | Identity Like PK
+            | custom_name = | Our created custom variable name
+            | custom_name__startswith = | custom_name is variable
+            | custom_name__istartswith = | custom_name is variable, Case-insensitive starts-with
+            | custom_name__endswith = | 
+            | custom_name__iendswith = | Case-insensitive starts-with
+            | custom_name__contains = | custom_name is variable
+            | custom_name__icontains = | Case-insensitive containment test
+            | id__in= | [1, 3, 4] *** it can take multiple or Single id values
+            | custom_name__in = | *** it can take multiple or Single id values
+            | id__gt = | Greater than, lt(less than), lte(Less than or equal to.) thes only work for integer value    
