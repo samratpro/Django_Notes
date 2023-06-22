@@ -1,3 +1,8 @@
+{% extends 'dashboard.html' %}
+{% load static %}
+{% block dashboardcontent %}
+
+
 file_name = '''all_data_show.html'''
 <!------------ All Data Showing in For Loop --------------->
 {% for data in all_data  %}
@@ -33,4 +38,4 @@ file_name = '''update_data.html'''
         </div>
     </form>
 
-
+{% endblock dashboardcontent %}
