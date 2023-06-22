@@ -3,9 +3,9 @@ from .models import *
 
 """
 ``` All Document: https://github.com/samratpro/Django-Component/blob/master/Model/queryset.md ```
-    MyModel.objects.all()                   Note: --Get All data
-    MyModel.objects.filter(field=value)     Note: --Filter return **List/multiple data**, It can be used for any backend continuous logic until getting certain data
-    MyModel.objects.get(field=value)        Note: --Get return **Single Data**, 
+    MyModel.objects.all()                  ``` Get All data
+    MyModel.objects.filter(field=value)    ``` Filter return **List/multiple data**, It can be used for any backend continuous logic until getting certain data
+    MyModel.objects.get(field=value)       ``` Get return **Single Data**, 
     
 ``` Here filed list: ```
     Document: https://docs.djangoproject.com/en/4.2/ref/models/querysets/#id4
