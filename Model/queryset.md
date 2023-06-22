@@ -29,6 +29,7 @@
 
 # Here filed list: 
             Document: https://docs.djangoproject.com/en/4.2/ref/models/querysets/#id4
+            ----------------------------------------------------------------------------
             | `pk` = | `Primary Key` |
             | id = | Identity Like PK |
             | custom_name = | Our created custom variable name |
