@@ -1,6 +1,7 @@
 # cron.py in_app_folder
 
-...................... django_cron ........................................
+...................... django_cron  ........................................
+******* Warning: It have to run manually
 from django_cron import CronJobBase, Schedule
 from .models import ModelName
 
@@ -12,7 +13,7 @@ class ProcessAutomatedTask(CronJobBase):
         for task in pending_task:
             
             # Process the keyword here using AI API or any other task
-            # Update the keyword status to indicate completion
+            # Update the keyword status to indicate the completion
             
             task.status = 'Completed'
             task.save()
