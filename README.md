@@ -1,4 +1,5 @@
 # Jinja -HTML
+```
 - Required Plugin : Django
 - 
 {
@@ -20,8 +21,9 @@
     "*.html": "html"
   }
 }
-
+```
 # Extensions In VS Code
+```
 1. Bootstrap 5 Quick Snippets (https://marketplace.visualstudio.com/items?itemName=AnbuselvanRocky.bootstrap5-vscode)
 2. Django (https://marketplace.visualstudio.com/items?itemName=batisteo.vscode-django)
 3. Django Snippets (https://marketplace.visualstudio.com/items?itemName=bibhasdn.django-snippets)
@@ -33,10 +35,13 @@
 9. Python Indent (https://marketplace.visualstudio.com/items?itemName=KevinRose.vsc-python-indent)
 10. SQLite Viewer
 11. vscode-icons (https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons)
-
+```
 # Postgre Setup
+```
 https://stackpython.medium.com/how-to-start-django-project-with-a-database-postgresql-aaa1d74659d8
-
+```
 # Proxy
+```
 - proxy= requests.get('https://api.ipify.org/?format=json').json()
 - requests.get(proxies=proxy)
+```
