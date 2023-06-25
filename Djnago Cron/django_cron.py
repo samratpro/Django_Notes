@@ -14,7 +14,7 @@ class ProcessAutomatedTask(CronJobBase):
     schedule = Schedule(run_every_mins=1)
     code = 'myapp.Process_Automated_Task'  # Unique identifier
     def do(self):
-        pending_keywords = ModelName.objects.filter(status='Pending')
+        pending_task = ModelName.objects.filter(status='Pending')
         for task in pending_task:
             
             # Process the keyword here using AI API or any other task
