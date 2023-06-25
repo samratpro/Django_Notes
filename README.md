@@ -1,10 +1,10 @@
 # Table of Content:
-1 Jinja -HTML
-2 Extensions In VS Code
-3 Postgre Setup
-4 Proxy
-5 Pythonanywhere Setup docs link
-6 Pythonanywhere Setup Guide
+1 Jinja -HTML `<br>`
+2 Extensions In VS Code `<br>`
+3 Postgre Setup `<br>`
+4 Proxy `<br>`
+5 Pythonanywhere Setup docs link `<br>`
+6 Pythonanywhere Setup Guide `<br>`
 
 
 ## Jinja -HTML
