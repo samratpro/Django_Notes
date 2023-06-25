@@ -55,39 +55,39 @@ https://www.youtube.com/watch?v=A6mTN6G-adM
 ```
 # Pythonanywhere Setup Guide
 
-step 1: Consoles
+### Step 1: Consoles
 ```
 # Go Consoles and open console bash
 git clone git_repo_link
 ```
-Step 2:
+### Step 2:
 ```
 # navigate folder in console bash where have " manage.py " file with " cd " command and checking with " ls "
 ```
-Step 3: Consoles
+### Step 3: Consoles
 ```
 # Create a Virtual Environment in console bash where has " manage.py " file, we can change the Python version
 mkvirtualenv --python=/usr/bin/python3.7  mysite-virtualenv
 ```
-Step 4: Consoles
+### Step 4: Consoles
 ```
 workon  mysite-virtualenv
 # do this command to ensure the virtual environment has been activated in console bash 
 ```
-Step 5: Consoles
+### Step 5: Consoles
 ```
 pip install -r requirements.txt
 or install modules
 ```
-Step 6: Web
+### Step 6: Web
 ```
 # from another " browser tab " Go web from the menu and Create a Django, web with Manual configuration, also make sure same version python
 ```
-Step 7: Web
+### Step 7: Web
 ```
 # Scroll down and go Source code section after creating Django
 ```
-Step 8: Files then Web
+### Step 8: Files then Web
 ```
 # Go file section by opening another " tab of the browser "
 # Navigate the " project folder " path until manage.py file section
@@ -97,7 +97,7 @@ example:
 # copy this path and paste it into the Source code: section according to step 7, where created Django section from " Menu > Web ":
 ```
 
-Step 9: Web
+### Step 9: Web
 ```
 # Open WSGI configuration file:
 # Paste this code
@@ -114,7 +114,7 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'aiwriter.settings'
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
 ```
-Step 10: Files then Web
+### Step 10: Files then Web
 ```
 # input Virtualenv: path
 # Go file section by opening another tab of the browser
@@ -128,7 +128,7 @@ Example:
 Virtualenv:
 /home/aiwritertools/.virtualenvs/mysite-virtualenv
 ```
-Step 11 : Files then Web
+### Step 11 : Files then Web
 ```
 Static files:
 URL	Directory:
@@ -136,13 +136,13 @@ URL	Directory:
 | /static/	 |  /home/aiwritertools/AiWriterTools/aiwriter/static	   |
 | /media/	   |   /home/aiwritertools/AiWriterTools/aiwriter/media	   |
 ```
-Step 12: Console
+### Step 12: Console
 ```
 # go bash console and:
 python manage.py makemigrations
 python manage.py migrate
 ```
-Step 13: Web
+### Step 13: Web
 ```
 Reload: project.pythonanywhere.com
 
