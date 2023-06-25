@@ -1,13 +1,13 @@
-"""--- Warning: It has to run manually ---
+"""____ Warning: It has to run manually ____
 
-``` pip install django-cron ```
+____ pip install django-cron ________
 
-... Path = ```settings.py``` ...
+... Path = ```settings.py``` ________
 INSTALLED_APPS = [
     'django_cron',
 ]
 """
-... Path = ```cron.py``` 
+... Path = ```cron.py``` ________
 from django_cron import CronJobBase, Schedule
 from .models import ModelName
 class ProcessAutomatedTask(CronJobBase):
@@ -24,11 +24,11 @@ class ProcessAutomatedTask(CronJobBase):
             task.save()
 
 """
-``` python manage.py migrate django_cron ```
-``` py manage.py makemigrations ```
-``` py manage.py migrate ```
+____ python manage.py migrate django_cron ____
+____ py manage.py makemigrations ____
+____ py manage.py migrate ____
 
-``` python manage.py runcrons ```
+____ python manage.py runcrons ____
 
 """
 
