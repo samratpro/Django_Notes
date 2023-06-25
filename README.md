@@ -1,11 +1,12 @@
 # Table of Content:
+```
 1 Jinja -HTML  
 2 Extensions In VS Code  
 3 Postgre Setup  
 4 Proxy  
 5 Pythonanywhere Setup docs link  
 6 Pythonanywhere Setup Guide  
-
+```
 
 ## Jinja -HTML
 ```
