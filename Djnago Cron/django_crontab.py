@@ -1,7 +1,7 @@
 """
-____ pip install django-crontab ____
+pip install django-crontab
 
-____ Path = ```settings.py``` ____
+Path = ```settings.py```
 INSTALLED_APPS = [
     'django_crontab',
 ]
@@ -11,7 +11,7 @@ CRONJOBS = [
 ]
 
 """
-.... Path = ____cron.py____
+``` .... Path = cron.py  ``
 from .models import ModelName
 class ProcessAutomatedTask(CronJobBase):
     code = 'myapp.Process_Automated_Task'  # Unique identifier
@@ -26,11 +26,11 @@ class ProcessAutomatedTask(CronJobBase):
             task.save()
 
 """
-____ py manage.py makemigrations ____
-____ py manage.py migrate ____
+python manage.py makemigrations
+python manage.py migrate
 
 
-___ python manage.py crontab add ____
+python manage.py crontab add
 
 
 ___ python manage.py crontab show _____
