@@ -47,9 +47,10 @@ https://stackpython.medium.com/how-to-start-django-project-with-a-database-postg
 - requests.get(proxies=proxy)
 ```
 # Pythonanywhere
+```
 https://www.pythonanywhere.com/
 https://studygyaan.com/django/host-django-website-application-for-free-in-5-minutes
 https://www.pythonanywhere.com/forums/topic/27314/
 https://www.youtube.com/watch?v=A6mTN6G-adM
-
+```
 
