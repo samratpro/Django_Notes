@@ -1,4 +1,13 @@
-# Jinja -HTML
+# Table of Content:
+** Jinja -HTML **
+** Extensions In VS Code **
+** Postgre Setup **
+** Proxy **
+** Pythonanywhere Setup docs link **
+** Pythonanywhere Setup Guide **
+
+
+## Jinja -HTML
 ```
 - Required Plugin : Django
 - 
@@ -22,7 +31,7 @@
   }
 }
 ```
-# Extensions In VS Code
+## Extensions In VS Code
 ```
 1. Bootstrap 5 Quick Snippets (https://marketplace.visualstudio.com/items?itemName=AnbuselvanRocky.bootstrap5-vscode)
 2. Django (https://marketplace.visualstudio.com/items?itemName=batisteo.vscode-django)
@@ -36,24 +45,24 @@
 10. SQLite Viewer
 11. vscode-icons (https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons)
 ```
-# Postgre Setup
+## Postgre Setup
 ```
 
 https://stackpython.medium.com/how-to-start-django-project-with-a-database-postgresql-aaa1d74659d8
 ```
-# Proxy
+## Proxy
 ```
 - proxy= requests.get('https://api.ipify.org/?format=json').json()
 - requests.get(proxies=proxy)
 ```
-# Pythonanywhere
+## Pythonanywhere Setup docs link
 ```
 https://www.pythonanywhere.com/
 https://studygyaan.com/django/host-django-website-application-for-free-in-5-minutes
 https://www.pythonanywhere.com/forums/topic/27314/
 https://www.youtube.com/watch?v=A6mTN6G-adM
 ```
-# Pythonanywhere Setup Guide
+## Pythonanywhere Setup Guide
 
 ### Step 1: Consoles
 ```
