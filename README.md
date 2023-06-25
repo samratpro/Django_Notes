@@ -55,53 +55,54 @@ https://www.youtube.com/watch?v=A6mTN6G-adM
 ```
 # Pythonanywhere Setup Guide
 
-step 1:
+step 1: Consoles
 ```
 # Go Consoles and open console bash
 git clone git_repo_link
 ```
 Step 2:
 ```
-# navigate folder where have manage.py file
+# navigate folder in console bash where have " manage.py " file with " cd " command and checking with " ls "
 ```
-Step 3:
+Step 3: Consoles
 ```
-# Create a Virtual Environment, we can change the Python version
+# Create a Virtual Environment in console bash where has " manage.py " file, we can change the Python version
 mkvirtualenv --python=/usr/bin/python3.7  mysite-virtualenv
 ```
-Step 4:
+Step 4: Consoles
 ```
 workon  mysite-virtualenv
-# do this command to ensure the virtual environment has been activated
+# do this command to ensure the virtual environment has been activated in console bash 
 ```
-Step 5:
+Step 5: Consoles
 ```
 pip install -r requirements.txt
 or install modules
 ```
-Step 6:
+Step 6: Web
 ```
-# Go web and Create a Django, web with Manual configuration, also make sure same version python
+# from another " browser tab " Go web from the menu and Create a Django, web with Manual configuration, also make sure same version python
 ```
-Step 7:
+Step 7: Web
 ```
-# Scroll down and go Source code section
+# Scroll down and go Source code section after creating Django
 ```
-Step 8:
+Step 8: Files then Web
 ```
-# Go file section by opening another tab of the browser
+# Go file section by opening another " tab of the browser "
 # Navigate the " project folder " path until manage.py file section
 example:
 /home/aiwritertools/AiWriterTools/aiwriter (in this directory has manage.py)
 
-# copy this path and paste in the Source code: section according to step 7:
+# copy this path and paste it into the Source code: section according to step 7, where created Django section from " Menu > Web ":
 ```
 
-Step 9:
+Step 9: Web
 ```
 # Open WSGI configuration file:
 # Paste this code
-# Configure path = '/home/aiwritertools/AiWriterTools/aiwriter' and aiwriter.settings
+# Configure these ,  path = '/home/aiwritertools/AiWriterTools/aiwriter' and aiwriter.settings
+
 import os
 import sys
 path = '/home/aiwritertools/AiWriterTools/aiwriter'
@@ -113,7 +114,7 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'aiwriter.settings'
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
 ```
-Step 10:
+Step 10: Files then Web
 ```
 # input Virtualenv: path
 # Go file section by opening another tab of the browser
@@ -127,7 +128,7 @@ Example:
 Virtualenv:
 /home/aiwritertools/.virtualenvs/mysite-virtualenv
 ```
-Step 11 :
+Step 11 : Files then Web
 ```
 Static files:
 URL	Directory:
@@ -135,13 +136,13 @@ URL	Directory:
 | /static/	 |  /home/aiwritertools/AiWriterTools/aiwriter/static	   |
 | /media/	   |   /home/aiwritertools/AiWriterTools/aiwriter/media	   |
 ```
-Step 12:
+Step 12: Console
 ```
 # go bash console and:
 python manage.py makemigrations
 python manage.py migrate
 ```
-Step 13:
+Step 13: Web
 ```
 Reload: project.pythonanywhere.com
 
