@@ -1,7 +1,8 @@
 # Step : 1
+```
 pip install celery
 pip install redis
-
+```
 
 ## Project Directory
 # create new file name: celery.py
