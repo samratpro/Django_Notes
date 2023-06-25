@@ -1,10 +1,15 @@
-# cron.py in_app_folder
+"""--- Warning: It has to run manually ---
 
-...................... django_cron  ........................................
-******* Warning: It have to run manually
+``` pip install django-cron ```
+
+... Path = ```settings.py``` ...
+INSTALLED_APPS = [
+    'django_cron',
+]
+"""
+... Path = ```cron.py``` 
 from django_cron import CronJobBase, Schedule
 from .models import ModelName
-
 class ProcessAutomatedTask(CronJobBase):
     schedule = Schedule(run_every_mins=1)
     code = 'myapp.Process_Automated_Task'  # Unique identifier
@@ -18,5 +23,12 @@ class ProcessAutomatedTask(CronJobBase):
             task.status = 'Completed'
             task.save()
 
+"""
+``` python manage.py migrate django_cron ```
+``` py manage.py makemigrations ```
+``` py manage.py migrate ```
 
+``` python manage.py runcrons ```
+
+"""
 
