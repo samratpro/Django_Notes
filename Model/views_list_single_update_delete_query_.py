@@ -79,3 +79,26 @@ def delete_data(request, data_id):
     data.delete()
     return redirect('/alldata')
 
+
+# Select Data From different Model From HTML Template
+def MakingPost(request):
+    template = 'Data_From_different_Model.html'
+    website = WesiteModel.objects.all()
+    api = OpenaiAPIModel.objects.all()
+    context = {'api':api, 'website':website}
+    
+    if request.method == 'POST':
+        keyword = request.POST.get('keyword')
+        
+        website_id = request.POST['website_id']
+        targeted_website = WesiteModel.objects.get(pk=website_id)
+
+        api_id = request.POST['api_id']
+        targeted_api = OpenaiAPIModel.objects.get(pk=api_id)
+
+        # Do action with these data, also look how html file working
+        
+        return redirect('makingpost')
+    
+    return render(request, template, context=context)
+
