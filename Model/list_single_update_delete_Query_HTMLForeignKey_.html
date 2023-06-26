@@ -56,10 +56,10 @@ file_name = '''makingpost.html'''
             {% endfor %}
         </select>
 
-        <select name="api_id" class="form-select mt-3" aria-label="Default select example">
+        <select name="openaiapi_id" class="form-select mt-3" aria-label="Default select example">
             <option selected>Select OpenAI API</option>
-            {% for single_api in api  %}
-            <option value="{{single_api.id}}">{{single_api.name}}</option>
+            {% for single_openaiapi in openaiapi  %}
+            <option value="{{single_openaiapi.id}}">{{single_openaiapi.name}}</option>
             {% endfor %}
         </select>
 
@@ -75,6 +75,16 @@ file_name = '''makingpost.html'''
     </form>
 </div>
 
+
+<div class="container mt-5">
+        <ul class="list-group">
+            {% for keyword in keyword_pending  %}
+            <li class="list-group-item">
+                {{keyword.name}} Status : {{keyword.status}}    
+            </li>
+            {% endfor %}
+        </ul>
+</div>
 
 
 
