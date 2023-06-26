@@ -81,24 +81,49 @@ def delete_data(request, data_id):
 
 
 # Select Data From different Model From HTML Template
-def MakingPost(request):
-    template = 'Data_From_different_Model.html'
+from .task import *
+import threading
+scheduler_thread = None  
+def bulkpost(request):
+    template = 'bulkpost.html'
     website = WesiteModel.objects.all()
-    api = OpenaiAPIModel.objects.all()
-    context = {'api':api, 'website':website}
+    openaiapi = OpenaiAPIModel.objects.all()
+    youtubeapi = YoutubeAPIModel.objects.all()
+    keyword_pending = BulkKeywordModel.objects.filter(status='Pending')
+    context = {'keyword_pending': keyword_pending, 'openaiapi':openaiapi, 'youtubeapi':youtubeapi, 'website':website}
     
     if request.method == 'POST':
-        keyword = request.POST.get('keyword')
+        keyword_list = request.POST.get('keyword_list')
+        keywords = keyword_list.split('\n')
         
         website_id = request.POST['website_id']
-        targeted_website = WesiteModel.objects.get(pk=website_id)
-
-        api_id = request.POST['api_id']
-        targeted_api = OpenaiAPIModel.objects.get(pk=api_id)
-
-        # Do action with these data, also look how html file working
+        website_url = WesiteModel.objects.get(pk=website_id).website_url
+        website_username = WesiteModel.objects.get(pk=website_id).username
+        website_app_pass = WesiteModel.objects.get(pk=website_id).app_pass
         
-        return redirect('makingpost')
+        openaiapi_id = request.POST['openaiapi_id']
+        openai_api_key = OpenaiAPIModel.objects.get(pk=openaiapi_id).API_Key
+        
+        youtubeapi_id = request.POST['youtubeapi_id']
+        youtube_api_key = YoutubeAPIModel.objects.get(pk=youtubeapi_id).API_Key 
+        
+        print('website_url : ', website_url)
+        print('website_username : ', website_username)
+        print('website_app_pass : ', website_app_pass)
+        print('openai_api_key : ', openai_api_key)
+        print('youtube_api_key : ', youtube_api_key)
+        
+        for keyword in keywords:
+            keyword = keyword.strip()
+            if keyword:
+                BulkKeywordModel.objects.create(name=keyword, status='Pending')
+
+        global scheduler_thread
+        if scheduler_thread is None or not scheduler_thread.is_alive():
+            # Start the task scheduler in a separate thread
+            scheduler_thread = threading.Thread(target=BulkKeywordsJob)
+            scheduler_thread.start()
+        return redirect('bulkpost')
     
     return render(request, template, context=context)
 
