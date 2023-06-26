@@ -46,10 +46,8 @@ file_name = '''makingpost.html'''
     <form action="" method="post">
         {% csrf_token %}
         <label for="" class="form-label">Keyword List</label>
-        <div class="mb-3">
-          <label for="" class="form-label">Keyword</label>
-          <input type="text"
-            class="form-control" name="keyword" id="">
+        <div class="form-floating">
+            <textarea name="keyword_list" class="form-control" id="floatingTextarea2" style="height: 300px"></textarea>
         </div>
         <select name="website_id" class="form-select mt-3" aria-label="Default select example">
             <option selected>Select Website</option>
@@ -59,9 +57,16 @@ file_name = '''makingpost.html'''
         </select>
 
         <select name="api_id" class="form-select mt-3" aria-label="Default select example">
-            <option selected>Select API</option>
+            <option selected>Select OpenAI API</option>
             {% for single_api in api  %}
             <option value="{{single_api.id}}">{{single_api.name}}</option>
+            {% endfor %}
+        </select>
+
+        <select name="youtubeapi_id" class="form-select mt-3" aria-label="Default select example">
+            <option selected>Select Youtube API</option>
+            {% for single_youtubeapi in youtubeapi  %}
+            <option value="{{single_youtubeapi.id}}">{{single_youtubeapi.name}}</option>
             {% endfor %}
         </select>
 
