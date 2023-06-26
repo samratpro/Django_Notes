@@ -3,6 +3,8 @@
 {% block dashboardcontent %}
 
 
+
+
 file_name = '''all_data_show.html'''
 <!------------ All Data Showing in For Loop --------------->
 {% for data in all_data  %}
@@ -38,4 +40,40 @@ file_name = '''update_data.html'''
         </div>
     </form>
 
+
+file_name = '''makingpost.html'''
+<div class="container">
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="" class="form-label">Keyword List</label>
+        <div class="mb-3">
+          <label for="" class="form-label">Keyword</label>
+          <input type="text"
+            class="form-control" name="keyword" id="">
+        </div>
+        <select name="website_id" class="form-select mt-3" aria-label="Default select example">
+            <option selected>Select Website</option>
+            {% for single_website in website  %}
+            <option value="{{single_website.id}}">{{single_website.website_name}}</option>
+            {% endfor %}
+        </select>
+
+        <select name="api_id" class="form-select mt-3" aria-label="Default select example">
+            <option selected>Select API</option>
+            {% for single_api in api  %}
+            <option value="{{single_api.id}}">{{single_api.name}}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit" class="btn btn-success mt-5">Start Making Post</button>
+    
+    </form>
+</div>
+
+
+
+
 {% endblock dashboardcontent %}
+
+
+
