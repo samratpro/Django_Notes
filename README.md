@@ -142,7 +142,7 @@ Virtualenv:
 ```
 Static files:
 URL	Directory:
-| URL        |   Directory                                           |
+| URL        |   Directory                                              |
 | /static/	 |  /home/aiwritertools/AiWriterTools/aiwriter/static	   |
 | /media/	   |   /home/aiwritertools/AiWriterTools/aiwriter/media	   |
 ```
