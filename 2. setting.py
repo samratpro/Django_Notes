@@ -17,6 +17,10 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
+# This is for Hosted server and When Debug is False after Hosting Django App in Domain
+STATIC_ROOT = BASE_DIR / "staticfiles"
+# python manage.py collectstatic
+# >>> Collect Admin CSS files from " staticfiles " and paste it in " static " Folder
 
 # Postgresql database  # Probbaly 78 line
 DATABASES = {
