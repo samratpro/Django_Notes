@@ -17,9 +17,10 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
+STATIC_ROOT = BASE_DIR / "staticfiles" # for collect static
+
 # This is for Hosted server and When Debug is False after Hosting Django App in Domain
-STATIC_ROOT = BASE_DIR / "staticfiles"
-python manage.py collectstatic
+# >>> python manage.py collectstatic
 # >>> Now configure it in Project urls.py
 from django.conf import settings
 from django.conf.urls.static import static
