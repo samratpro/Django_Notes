@@ -1,5 +1,8 @@
 # General Query All Data
 from .models import *
+from django.contrib.auth.decorators import login_required
+from django.db.models import Q # Multiple DB query
+
 
 """
 ``` All Document: https://github.com/samratpro/Django-Component/blob/master/Model/queryset.md ```
@@ -24,6 +27,7 @@ from .models import *
 """
 
 # Save data .....................................
+@login_required(login_url='login/')  # login/  is custom login URL path
 def website(request):
     template = 'add_data_.html'
     if request.method == 'POST':
@@ -43,6 +47,7 @@ def website(request):
         return render(request, template, context=context)
 
 # Showing all data, like post .....................................................
+@login_required(login_url='login/')  # login/  is custom login URL path
 def AllDataShow(request):
     all_data = WesiteModel.objects.all()
     template = 'all_data_show.html'
@@ -50,6 +55,7 @@ def AllDataShow(request):
     return render(request, template, context=context)
 
 # Viewing Single Data .....................................
+@login_required(login_url='login/')  # login/  is custom login URL path
 def single_data(request, data_id):
     template = "single_data.html"
     sigle_data = WesiteModel.objects.get(pk=data_id)
@@ -57,6 +63,7 @@ def single_data(request, data_id):
     return render(request, template, context)
 
 # Update Data ...................................................
+@login_required(login_url='login/')  # login/  is custom login URL path
 def update_data(request, data_id):
     template = "update_data.html"
     data = WesiteModel.objects.get(pk=data_id)
@@ -76,6 +83,7 @@ def update_data(request, data_id):
     return render(request, template, context)
 
 # Delete Data ...................................................
+@login_required(login_url='login/')  # login/  is custom login URL path
 def delete_data(request, data_id):
     data = WesiteModel.objects.get(pk=data_id)
     data.delete()
@@ -83,6 +91,7 @@ def delete_data(request, data_id):
 
 
 # Select Data From different Model From HTML Template
+@login_required(login_url='login/')  # login/  is custom login URL path
 from .task import *
 import threading
 scheduler_thread = None  
