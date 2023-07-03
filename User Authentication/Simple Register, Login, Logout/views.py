@@ -19,7 +19,7 @@ def login(request):
                return redirect('dashboard')
         else:
             messages.info(request, 'Invalid password or username')
-            return redirect('login')
+            return redirect(request.get_full_path()) # Need to return current URL cause next URL and normal URL are different
     else:
         template = 'login.html'
         return render(request, template)
