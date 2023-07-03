@@ -6,6 +6,7 @@
 4 Proxy  
 5 Pythonanywhere Setup docs link  
 6 Pythonanywhere Setup Guide  
+7 Django Cpanel Setup Guide  
 ```
 
 ## Jinja -HTML
