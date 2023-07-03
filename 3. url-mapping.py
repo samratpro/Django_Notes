@@ -22,5 +22,5 @@ urlpatterns = [
     path('about', views.about, name='about'),  
 ]
 
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)  # for collctstatic or admin css
 # >>> 404.html and Debug is false for 404 page
