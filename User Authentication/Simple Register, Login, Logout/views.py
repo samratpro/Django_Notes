@@ -1,6 +1,7 @@
 from django.contrib.auth import authenticate
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 
@@ -57,3 +58,12 @@ def register(request):
     else:
         template = 'register.html'
         return render(request, template)
+
+# Showing all data, after login 
+@login_required(login_url='login/')  # login/  is custom login URL path
+def AllDataShow(request):
+    all_data = WesiteModel.objects.all()
+    template = 'all_data_show.html'
+    context = {'all_data':all_data}
+    return render(request, template, context=context)
+
