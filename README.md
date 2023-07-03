@@ -159,4 +159,22 @@ python manage.py migrate
 Reload: project.pythonanywhere.com
 
 ```
+##  Django Cpanel Setup Guide
+### Step 1: Manage Shell
+```
+from " Manage SSH " enable Enable " SSH access " to Activate the " Terminal "
+" Terminal " will have in Advanced section
+
+```
+### Step 2: Setup Python App
+```
+>>> Go " Setup Python App " section >
+>>> Create Application >
+>>> Python Version (3.7 is suitable) >
+>>> Application root ( That folder will have " Django Files " unknown name can be to create new one) >
+>>> Application URL ( Select the domain/subdomain name ) >
+>>> Application startup file ( Keep blank ) >
+>>> Application Entry point ( Keep blank ) >
+```
+
 
