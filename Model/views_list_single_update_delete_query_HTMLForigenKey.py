@@ -6,6 +6,8 @@ from .models import *
     MyModel.objects.all()                  ``` Get All data
     MyModel.objects.filter(field=value)    ``` Filter return **List/multiple data**, It can be used for any backend continuous logic until getting certain data
     MyModel.objects.get(field=value)       ``` Get return **Single Data**, 
+    from django.db.models import Q
+    keyword_pending = BulkKeywordModel.objects.filter(Q(status='Pending') | Q(status='Running...'))   ``` Multiple query,
     
 ``` Here filed list: ```
     Document: https://docs.djangoproject.com/en/4.2/ref/models/querysets/#id4
