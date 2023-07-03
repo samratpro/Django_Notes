@@ -38,6 +38,9 @@ static
 # For static update
 python manage.py collectstatic
 
+404 Page
+# >>> 404.html and Debug is false for 404 page
+
 # CSS JS support
 {% load static %}
 <link rel="stylesheet" href="{% static 'style.css' %}">
