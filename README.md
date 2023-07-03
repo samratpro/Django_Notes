@@ -164,7 +164,6 @@ Reload: project.pythonanywhere.com
 ```
 from " Manage SSH " enable Enable " SSH access " to Activate the " Terminal "
 " Terminal " will have in Advanced section
-
 ```
 ### Step 2: Setup Python App
 ```
@@ -176,5 +175,43 @@ from " Manage SSH " enable Enable " SSH access " to Activate the " Terminal "
 >>> Application startup file ( Keep blank ) >
 >>> Application Entry point ( Keep blank ) >
 ```
+### Step 3: Terminal & Virtual Environment
+```
+>>> Copy the " Virtual Environment " path from the Django App section after creating (according to step 2)
+    example path: source /home/toolwqve/virtualenv/aiapp/3.7/bin/activate && cd /home/toolwqve/aiapp
+>>> Paste the path in the terminal to activate " Virtual Environment "
+    example: ((aiapp:3.7))    ----- here aiapp is folder name and 3.7 is the python version
+```
+### Step 4: Install Django and Setup Django
+```
+>>> pip install django
+>>> django-admin startproject projectname .
+>>> django-admin startapp appname
+```
+### Step 5: Make Sure the path and setup passenger_wsgi.py
+```
+>>> Delete everthing from this file and paste:
+    from aiwriter.wsgi import application
+    ( here aiwriter is project name, wsgi is file name, application is variable name from wsgi file 
+>>> This file will works alternative, python manage.py runserver
+>>> Also make sure setting.py: ALLOWED_HOSTS = ["*"] # approx 28 line
+>>> Now "Restart App (according to step 2) " reload and browse domain to see Django welcome page
+```
+### Step 6: Upload Project Files
+```
+Upload all local project files:
+>>> Project Folder
+    setting.py
+    urls.py
+>>> app folder
+```
+### Step 7: Database Migration
+```
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+>>> Then "Restart App (according to step 2) " reload and browse the domain to see Django Project
+```
+
 
 
