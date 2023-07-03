@@ -22,11 +22,6 @@ STATIC_ROOT = BASE_DIR / "staticfiles" # for collect static
 # This is for Hosted server and When Debug is False after Hosting Django App in Domain
 # >>> python manage.py collectstatic
 # >>> Now configure it in Project urls.py
-from django.conf import settings
-from django.conf.urls.static import static
-urlpatterns = []
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
 # >>> If Debug is True then admin CSS won't work in the local Server
 # >>> 404.html and Debug is false for 404 page
 
