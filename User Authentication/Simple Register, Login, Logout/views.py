@@ -59,11 +59,21 @@ def register(request):
         template = 'register.html'
         return render(request, template)
 
-# Showing all data, after login 
-@login_required(login_url='login/')  # login/  is custom login URL path
+# Showing all data, it can remind unauthority page before login and send the user targted page after login
+@login_required(login_url='login/')  # login/  is the custom login URL path
 def AllDataShow(request):
     all_data = WesiteModel.objects.all()
     template = 'all_data_show.html'
     context = {'all_data':all_data}
     return render(request, template, context=context)
+    
+# This way can not remind unauthority page before login 
+def AllDataShow(request):
+    if request.user.is_authenticated:
+        all_data = WesiteModel.objects.all()
+        template = 'all_data_show.html'
+        context = {'all_data':all_data}
+        return render(request, template, context=context)
+    else:
+        return redirect('login')
 
