@@ -21,6 +21,7 @@ STATICFILES_DIRS = [
 STATIC_ROOT = BASE_DIR / "staticfiles"
 # python manage.py collectstatic
 # >>> Collect Admin CSS files from " staticfiles " and paste it in " static " Folder
+# >>> If Debug is True then admin CSS won't work in the local Server
 
 # Postgresql database  # Probbaly 78 line
 DATABASES = {
