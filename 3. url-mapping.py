@@ -20,3 +20,4 @@ urlpatterns = [
     path('about', views.about, name='about'),  
 ]
 # Home is function name here...
+# >>> 404.html and Debug is false for 404 page
