@@ -70,5 +70,12 @@ python manage.py migrate
 
 {% endblock dashboardcontent %}
 ```
-
+## Also we can get data from HTML CK-Editor and save in Database
+```
+def save_content(request):
+    if request.method == 'POST':
+        content = request.POST.get('content')
+    else:
+        pass
+```
 
