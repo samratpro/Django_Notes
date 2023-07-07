@@ -59,7 +59,7 @@ def AllDataShow(request):
 def single_data(request, data_id):
     template = "single_data.html"
     sigle_data = WesiteModel.objects.get(pk=data_id)
-    context = {'sigle_data': sigle_data,'data_id': data_id}
+    context = {'sigle_data': sigle_data,'data_id': data_id}   # data id for editing request
     return render(request, template, context)
 
 # Update Data ...................................................
