@@ -1,3 +1,5 @@
+# schedule is for 24 hours job
+
 import schedule
 import os
 from datetime import datetime
