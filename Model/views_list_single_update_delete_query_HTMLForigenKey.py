@@ -56,7 +56,7 @@ def AllDataShow(request):
 
 # Viewing Single Data .....................................
 @login_required(login_url='login/')  # login/  is custom login URL path
-def single_data(request, data_id):
+def single_data(request, data_id):   # ```data_id``` should be pass in url as <data_id>
     template = "single_data.html"
     sigle_data = WesiteModel.objects.get(pk=data_id)          # we can't use `id` as function argument
     context = {'sigle_data': sigle_data,'data_id': data_id}   # data id for editing request
@@ -64,7 +64,7 @@ def single_data(request, data_id):
 
 # Update Data ...................................................
 @login_required(login_url='login/')  # login/  is custom login URL path
-def update_data(request, data_id):
+def update_data(request, data_id):   # ```data_id``` should be pass in url as <data_id>
     template = "update_data.html"
     data = WesiteModel.objects.get(pk=data_id)
     if request.method == "POST":
@@ -84,7 +84,7 @@ def update_data(request, data_id):
 
 # Delete Data ...................................................
 @login_required(login_url='login/')  # login/  is custom login URL path
-def delete_data(request, data_id):
+def delete_data(request, data_id):   # ```data_id``` should be pass in url as <data_id>
     data = WesiteModel.objects.get(pk=data_id)
     data.delete()
     return redirect('/alldata')
