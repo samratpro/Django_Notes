@@ -14,6 +14,7 @@ urlpatterns = [
 # URL Mapping in App URL file----------------------
 from django.urls import path
 from . import views
+from django.conf import settings
 
 
 urlpatterns = [
