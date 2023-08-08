@@ -11,7 +11,10 @@ file_name = '''all_data_show.html'''
   <li>{{data.data_name}}</li>
   <a href="{% url 'single_data' data.id %}"> View </a>   <!------------------ URL For Viewing Single Data  -->
   <a href="{% url 'update_data' data.id %}"> Update </a> <!----------------- URL For Updating Single Data  -->
-{% endfor %}
+
+<!----------- delete data ------------>
+  <a class="btn btn-danger ms-3 m-1" href="{% url 'delete_completed_single_post' single_data.id %}">Delete</a> 
+  {% endfor %}
 
 
 file_name = '''single_data.html'''
