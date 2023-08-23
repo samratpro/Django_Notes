@@ -23,6 +23,10 @@ python manage.py runserver     # python manage.py runserver 0.0.0.0:8000 --norel
 
 
 ## Commands
+delete db migrations or db
+delete db
+then delete all files from the migration folder of the app folder without __init__.py
+
 # For database update
 python manage.py makemigrations
 python manage.py migrate
