@@ -1,9 +1,9 @@
 # Model.py ------------------------
-```
+'''
 delete db migrations or db
 delete db
 then delete all files from the migration folder of the app folder without __init__.py
-```
+'''
 
 
 from django.db import models
