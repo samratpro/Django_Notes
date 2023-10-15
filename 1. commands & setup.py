@@ -10,7 +10,7 @@ Source scripts/env/activate
 pip install django
 
 # Django Project Create..
-django-admin startproject "projectname"
+django-admin startproject "projectname" .
 
 # Django App Creating..
 python manage.py startapp "appname"
