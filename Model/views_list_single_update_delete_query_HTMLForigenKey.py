@@ -46,7 +46,7 @@ def website(request):
         context = {'data_form':form}
         return render(request, template, context=context)
 
-# Showing all data, like post .....................................................
+# Showing all data, like posts in category .....................................................
 @login_required(login_url='login/')  # login/  is custom login URL path
 def AllDataShow(request):
     all_data = WesiteModel.objects.all()
