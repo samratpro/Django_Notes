@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('NewApp.urls'))
+    path('', include('NewApp.urls'))   # Must Have to create urls.py in App folder >> then at least one template render function in views.py 
 ]  # NewApp is App name here...
 
 
