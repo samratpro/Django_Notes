@@ -22,17 +22,17 @@ python manage.py runserver     # python manage.py runserver 0.0.0.0:8000 --norel
 # Ctrl + C
 
 
-## Commands
+## To Update database if fail to upgrade need to follow these
 delete db migrations or db
-delete db
 then delete all files from the migration folder of the app folder without __init__.py
 
-# For database update
+# For database update and first time need to run this command
 python manage.py makemigrations
 python manage.py migrate
 
 # For Admin
 python manage.py createsuperuser
+winpty python manage.py createsuperuser 
 
 
 # Important folders..
