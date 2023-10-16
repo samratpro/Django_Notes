@@ -49,3 +49,13 @@ python manage.py collectstatic
 {% load static %}
 <link rel="stylesheet" href="{% static 'style.css' %}">
 <script src="{% static 'myfirst.js' %}"></script>
+
+
+# Django Architecture
+env
+projectfolder
+appfolder1
+appfolder2
+static
+templates
+manage.py
