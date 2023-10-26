@@ -1,22 +1,22 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
+{% extends 'base.html' %}    <!-- in ``base.html`` block ``content`` section will replace this file -->
+{% load static %}            <!-- ``static`` is for CSS, image JS static files support -->
+{% block content %}          <!--  block ``content``  will replace ``base.html`` section  ``content`` -->
 
 
 
 <div class="container mt-5 w-50">
 
-    <form action="" method="post" class="border-bottom border-dark">
+    <form action="" method="post" class="border-bottom border-dark">  <!--  action="" method="post"  -->
 
-        {% csrf_token%}
+        {% csrf_token%}               <!--  CSRF token is for post method -->
 
-        <div class="form-group">
-          <input type="text" name="username" id="" class="form-control mb-3" placeholder="Username">
+        <div class="form-group">       <!-- name="username" will read django -->
+          <input type="text" name="username" id="" class="form-control mb-3" placeholder="Username"> 
         </div>
-        <div class="form-group">
+        <div class="form-group">       <!-- name="password" will read django -->
             <input type="password" name="password" id="" class="form-control mb-3" placeholder="Password">
         </div>
-        <div class="form-group">
+        <div class="form-group">      <!-- type="submit" will read django -->
             <button type="submit" class="btn btn-dark mb-4"> Login </button>
         </div>
     </form>
@@ -29,7 +29,7 @@
 
 
     <div class="mt-2 border-primary p-5 text-danger fs-6 ">
-        {% for message in messages %}
+        {% for message in messages %}                      <!--  Django For Loop -->
             <span>{{message}}</span>
         {% endfor %}
 
