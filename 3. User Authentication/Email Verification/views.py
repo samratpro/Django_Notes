@@ -11,23 +11,26 @@ from django.core.mail import EmailMessage
 from .token import account_activation_token
 
 def login(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            auth.login(request, user)
-            next_url = request.GET.get('next')
-            if next_url:
-                return redirect(next_url)
-            else:
-               return redirect('dashboard')
-        else:
-            messages.info(request, 'Invalid password or username')
-            return redirect(request.get_full_path()) # When fail to login, need to return current URL cause next URL and normal URL are different
+    if request.user.is_authenticated:
+        return redirect('dashboard')   # ``dashboard`` path is destination
     else:
-        template = 'login.html'
-        return render(request, template)
+        if request.method == 'POST':
+            username = request.POST['username']
+            password = request.POST['password']
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                auth.login(request, user)
+                next_url = request.GET.get('next')  # `` Get next `` will grab next targeted URL, which page was requested by User that need to Login
+                if next_url:
+                    return redirect(next_url)
+                else:
+                   return redirect('dashboard')
+            else:
+                messages.info(request, 'Invalid password or username')
+                return redirect(request.get_full_path()) # When fail to login, need to return current URL cause next URL and normal URL are different
+        else:
+            template = 'login.html'
+            return render(request, template)
     
 @login_required
 def logout(request):
