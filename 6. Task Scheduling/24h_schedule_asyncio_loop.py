@@ -5,6 +5,13 @@ import schedule
 from datetime import datetime
 import asyncio
 
+
+# This is a job, checking the a folder to see if there are any text files,
+# The task will run after the specified time and after ( import schedule )
+# This will work for 24 hours for an unlimited While loop ( while True )
+# Asyncio will multitask here / Share task here ( schedule_job() )
+
+
 async def job(arg='argument'):
     file_list = os.listdir('.')
     for file_name in file_list:
@@ -24,9 +31,9 @@ def run_schedule():
         schedule.run_pending()
 
 def schedule_job():
-    loop = asyncio.get_event_loop()
-    task = asyncio.create_task(job())
-    loop.run_until_complete(task)
+    loop = asyncio.get_event_loop()       # It ensures that these tasks are executed efficiently and concurrently
+    task = asyncio.create_task(job())     # event loop to actually run that task
+    loop.run_until_complete(task)         # This line effectively tells the event loop to execute the task and await its completion
 
 schedule.every(1).seconds.to(5).do(schedule_job)
 schedule.every(1).minutes.to(5).do(schedule_job)
