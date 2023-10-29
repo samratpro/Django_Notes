@@ -6,6 +6,11 @@ from datetime import datetime
 import threading
 
 
+# This is a job, checking the a folder to see if there are any text files,
+# The task will run after the specified time and after
+# This will work for 24 hours for an unlimited While loop
+# Threading will multitask here / Share task here
+
 def job(arg='argument'):
     file_list = os.listdir('.')
     for file_name in file_list:
