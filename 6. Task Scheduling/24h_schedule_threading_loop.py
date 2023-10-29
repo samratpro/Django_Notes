@@ -1,4 +1,4 @@
-# schedule is for 24 hours job
+# threading is CPU base operation, like Image Processing, Data manipulation etc
 
 import schedule
 import os
