@@ -26,14 +26,12 @@ async def job(arg='argument'):
         print("No text files found in the folder.")
         print(arg)
 
-def run_schedule():
-    while True:
-        schedule.run_pending()
 
 def schedule_job():
     loop = asyncio.get_event_loop()       # It ensures that these tasks are executed efficiently and concurrently
     task = asyncio.create_task(job())     # event loop to actually run that task
     loop.run_until_complete(task)         # This line effectively tells the event loop to execute the task and await its completion
+
 
 schedule.every(1).seconds.to(5).do(schedule_job)
 schedule.every(1).minutes.to(5).do(schedule_job)
@@ -46,6 +44,6 @@ schedule.every().monday.at('01:20').do(schedule_job)
 schedule.every(10).seconds.until('10:20').do(schedule_job)
 schedule.every(10).seconds.until(datetime(2024, 11, 21, 10, 21, 5)).do(schedule_job)
 
-if __name__ == '__main__':
-    run_schedule()
 
+while True:
+    schedule.run_pending()
