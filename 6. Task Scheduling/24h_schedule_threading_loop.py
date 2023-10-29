@@ -7,9 +7,9 @@ import threading
 
 
 # This is a job, checking the a folder to see if there are any text files,
-# The task will run after the specified time and after
-# This will work for 24 hours for an unlimited While loop
-# Threading will multitask here / Share task here
+# The task will run after the specified time and after ( import schedule )
+# This will work for 24 hours for an unlimited While loop ( while True )
+# Threading will multitask here / Share task here ( threading.Thread() )
 
 def job(arg='argument'):
     file_list = os.listdir('.')
