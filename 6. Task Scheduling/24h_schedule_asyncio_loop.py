@@ -1,3 +1,5 @@
+# asyncio is IO operation, API requests, Data base query etc
+
 import os
 import schedule
 from datetime import datetime
