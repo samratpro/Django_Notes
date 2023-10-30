@@ -32,10 +32,10 @@ def login(request):
             template = 'login.html'
             return render(request, template)
     
-@login_required
+# Must be follow this function
 def logout(request):
     auth.logout(request)
-    return redirect('/account/login')
+    return redirect('/')
 
 
 def register(request):
