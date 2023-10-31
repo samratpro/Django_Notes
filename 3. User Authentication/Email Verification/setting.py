@@ -14,3 +14,8 @@ EMAIL_HOST_USER = 'mdsamrat25800@gmail.com'
 EMAIL_HOST_PASSWORD = 'dzkaxrblycvbdtfg'   
 DEFAULT_FROM_EMAIL = 'mdsamrat25800@gmail.com'
 PASSWORD_RESET_TIMEOUT = 14400  # Seconds
+
+
+# user_profile_project/settings.py
+AUTH_USER_MODEL = 'user_profile.UserProfile'   # ` user_profile ` is app name and ` UserProfile ` is classname that have in models.py
+
