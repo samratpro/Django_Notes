@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('register/', views.register, name='register'),
-    path('activate/<uidb64>/<token>', views.activate, name='activate'),
+    path('activate/<str:activation_code>/', views.activate_account, name='activate_account'),
     path('login/', views.login, name='login'),
     path('logout/', views.logout, name='logout'),
 ]
