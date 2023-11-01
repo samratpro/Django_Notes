@@ -16,6 +16,10 @@ DEFAULT_FROM_EMAIL = 'mdsamrat25800@gmail.com'
 PASSWORD_RESET_TIMEOUT = 14400  # Seconds
 
 
-# user_profile_project/settings.py
-AUTH_USER_MODEL = 'user_profile.UserProfile'   # ` user_profile ` is app name and ` UserProfile ` is classname that have in models.py
+
+# This is required when create custom user type with AbstractUser
+AUTH_USER_MODEL = 'auth.User'
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
 
