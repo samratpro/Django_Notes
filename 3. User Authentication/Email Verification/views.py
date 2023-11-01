@@ -46,7 +46,7 @@ def register(request):
         password1 = request.POST['password1']
         password2 = request.POST['password2']
         email = request.POST['email']
-        if password1 == password2:
+        if password1 and password1 == password2:
             if User.objects.filter(username=username).exists():
                 messages.info(request,'This username has already taken')
                 return redirect('register')
