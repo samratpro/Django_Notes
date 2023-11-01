@@ -1,14 +1,14 @@
-from django.contrib.auth import authenticate
 from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate
 from django.contrib.auth.models import User, auth
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.template.loader import render_to_string
-from django.contrib.sites.shortcuts import get_current_site
-from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from django.utils.encoding import force_bytes, force_str
-from django.core.mail import EmailMessage
-from .token import account_activation_token
+from .models import AppUser   # Custom User from Model
+
+from django.utils.crypto import get_random_string
+
+
+# Create your views here.
 
 def login(request):
     if request.user.is_authenticated:
@@ -47,17 +47,32 @@ def register(request):
         password2 = request.POST['password2']
         email = request.POST['email']
         if password1 and password1 == password2:
-            if User.objects.filter(username=username).exists():
+            if AppUser.objects.filter(username=username).exists():
                 messages.info(request,'This username has already taken')
                 return redirect('register')
-            elif User.objects.filter(email=email):
+            elif AppUser.objects.filter(email=email):
                 messages.info(request,"This email has already taken")
                 return redirect('register')
                 
             else:
-                user = User.objects.create_user(username=username, password=password1, first_name=first_name, last_name=last_name, email=email)
+                user = AppUser.objects.create_user(username=username, password=password1, first_name=first_name, last_name=last_name, email=email)
                 user.save()
-                SendEmail(request, user, email)
+                
+                
+                activation_code = get_random_string(30)
+                user.activation_code = activation_code
+                user.save()
+
+                # Send activation email
+                # activation_link = f'http://127.0.0.1:8000/activate/{activation_code}/'
+                # send_mail(
+                #     'Activate Your Account',
+                #     f'Click the following link to activate your account: {activation_link}',
+                #     'from@example.com',
+                #     [email],
+                #     fail_silently=False,
+                # )
+                
                 messages.info(request, 'Successfully created account')
                 return redirect('login')
         else:
@@ -66,38 +81,16 @@ def register(request):
     else:
         template = 'register.html'
         return render(request, template)
-    
 
-def SendEmail(request, user, to_email):
-    mail_subject = 'Activate your user account.'
-    message = render_to_string('template_activate_account.html', {
-        'user': user.username,
-        'domain': get_current_site(request).domain,
-        'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-        'token': account_activation_token.make_token(user),
-        'protocol': 'https' if request.is_secure() else 'http'
-        })
-    email = EmailMessage(mail_subject, message, to=[to_email])
-    if email.send():
-        messages.success(request, f'Dear {user}, please go to you email {to_email} inbox and click on \
-            received activation link to confirm and complete the registration. Note: Check your spam folder.')
-    else:
-        messages.error(request, f'Problem sending confirmation email to {to_email}, check if you typed it correctly.')
-    
-def activate(request, uidb64, token):
+
+
+def activate_account(request, activation_code):
     try:
-        uid = force_str(urlsafe_base64_decode(uidb64))
-        user = User.objects.get(pk=uid)
-    except(TypeError, ValueError, OverflowError, User.DoesNotExist):
-        user = None
+        user = AppUser.objects.get(activation_code=activation_code, is_active=False)
+    except AppUser.DoesNotExist:
+        # Handle the case where the activation code is invalid or the account is already active
+        return render(request, 'activation_failed.html')
 
-    if user is not None and account_activation_token.check_token(user, token):
-        user.is_active = True
-        user.save()
-
-        messages.success(request, 'Thank you for your email confirmation. Now you can login your account.')
-        return redirect('login')
-    else:
-        messages.error(request, 'Activation link is invalid!')
-    
-    return redirect('dashboard/')
+    # Activate the user account
+    user.activate()
+    return render(request, 'activation_success.html')
