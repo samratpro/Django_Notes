@@ -27,6 +27,11 @@ STATIC_ROOT = BASE_DIR / "staticfiles" # for collect static
 # >>> If Debug is True then admin CSS won't work in the local Server
 # >>> 404.html and Debug is false for 404 page
 
+
+# For media support, also need to create ` media  ` folder where have manage.py 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
 # Postgresql database  # Probbaly 78 line
 DATABASES = {
     'default': {
