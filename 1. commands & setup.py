@@ -38,6 +38,7 @@ winpty python manage.py createsuperuser
 # Important folders..
 templates
 static
+media
 
 # For static update
 python manage.py collectstatic
@@ -63,4 +64,5 @@ appfolder1
 appfolder2
 static
 templates
+media
 manage.py
