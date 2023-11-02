@@ -28,7 +28,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles" # for collect static
 # >>> 404.html and Debug is false for 404 page
 
 
-# For media support, also need to create ` media  ` folder where have manage.py 
+# For media support, also need to create ` media  ` in media >>> ` images ` folder where have manage.py 
 # Also, need to Configure urls.py file for ` media support ` 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
