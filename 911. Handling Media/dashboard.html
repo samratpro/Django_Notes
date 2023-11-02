@@ -1,1 +1,14 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block basecontent %}
+
 <img src="{{logos.logo_img.url}}" width="180" alt="" />
+
+
+
+        {% block dashcontent %}
+        
+
+        {% endblock dashcontent %}
+
+{% endblock basecontent %}
