@@ -59,11 +59,20 @@ admin.site.site_header = 'Project Name'
 
 
 # Django Architecture
-env
-projectfolder
-appfolder1
-appfolder2
-static
-templates
-media
+.env
+▶️ project
+▶️ app1
+▶️ app2
+🔽 static
+   ▶️ css
+   ▶️ js
+   ▶️ images
+🔽 templates
+   📄 base.html
+   ▶️ app1
+      📄 file.html
+   ▶️ app2
+      📄 file.html
+🔽 media
+   ▶️ images 
 manage.py
