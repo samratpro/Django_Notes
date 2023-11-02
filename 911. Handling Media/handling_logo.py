@@ -1,3 +1,25 @@
+'''
+❓ Why Different way for logo rendering ? 
+
+👉 When we create a general model for logo and want to render in template
+👉 Here we need to pass image urls via a function
+
+✅ example:
+➡️ logo_in_database -------------| models.py
+         🔽
+➡️ Template Render Function------| views.py
+         🔽
+➡️ Calling Image in HTML----------| base.html / home.html
+
+👉 But, problem is, in every page we need to call logo
+👉 And for each page rendering we use different function
+👉 And in every function we need call logo from database and pass as context
+✅ Istead of passing context in every function, we can create a common database query passing way 
+✅ That can render logo in every page
+✅ It's say ` context_processors ` via setting.py like django messing system
+'''
+
+
 # Admin.py ...........................
 from django.contrib import admin
 from .models import *
