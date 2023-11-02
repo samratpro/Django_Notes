@@ -29,6 +29,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles" # for collect static
 
 
 # For media support, also need to create ` media  ` folder where have manage.py 
+# Also, need to Configure urls.py file for ` media support ` 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
