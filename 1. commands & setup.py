@@ -38,7 +38,8 @@ winpty python manage.py createsuperuser
 # Important folders..
 templates
 static
-media
+🔽 media
+   ▶️ images 
 
 # For static update
 python manage.py collectstatic
