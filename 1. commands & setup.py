@@ -51,6 +51,11 @@ python manage.py collectstatic
 <script src="{% static 'myfirst.js' %}"></script>
 
 
+# Changing the Django Admin Header Text
+# admin.py in any App
+admin.site.site_header = 'Project Name'   
+
+
 # Django Architecture
 env
 projectfolder
