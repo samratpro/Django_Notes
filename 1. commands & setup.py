@@ -54,7 +54,7 @@ python manage.py collectstatic
 
 
 # Changing the Django Admin Header Text
-# admin.py in any App
+# admin.py in any App, Registered last App in setting will get top priority
 admin.site.site_header = 'Project Name'   
 
 
