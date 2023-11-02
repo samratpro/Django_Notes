@@ -24,6 +24,7 @@ urlpatterns = [
     path('article', views.article, name='article'),  
     path('about', views.about, name='about'),  
 ]
-
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)  # for collctstatic or admin css
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)  # -------- For collctstatic or admin css
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)    # -------- For Media Support
 # >>> 404.html and Debug is false for 404 page
