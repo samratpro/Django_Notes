@@ -3,8 +3,9 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.models import User, auth
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .models import AppUser   # Custom User from Model
-
+from .models import AppUser              # Custom User from Model
+from django.core.mail import send_mail
+from django.contrib.sites.shortcuts import get_current_site
 from django.utils.crypto import get_random_string
 
 
@@ -64,14 +65,16 @@ def register(request):
                 user.save()
 
                 # Send activation email
-                # activation_link = f'http://127.0.0.1:8000/activate/{activation_code}/'
-                # send_mail(
-                #     'Activate Your Account',
-                #     f'Click the following link to activate your account: {activation_link}',
-                #     'from@example.com',
-                #     [email],
-                #     fail_silently=False,
-                # )
+                current_site = get_current_site(request)
+                domain = current_site.domain
+                activation_link = f'{domain}/activate/{activation_code}/'
+                send_mail(
+                    'Activate Your Account',
+                    f'Click the following link to activate your account: {activation_link}',
+                    'from@example.com',
+                    [email],
+                    fail_silently=False
+                )
                 
                 messages.info(request, 'Successfully created account')
                 return redirect('login')
