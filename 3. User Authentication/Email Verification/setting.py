@@ -18,7 +18,8 @@ PASSWORD_RESET_TIMEOUT = 14400  # Seconds
 
 
 # This is required when create custom user type with AbstractUser
-AUTH_USER_MODEL = 'auth.User'
+AUTH_USER_MODEL = 'userapp.AppUser'    # ----------------- userapp is app name here, this is required if a custom user want to login
+# This is required for admin backend
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
