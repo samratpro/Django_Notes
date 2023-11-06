@@ -9,7 +9,7 @@ class AppUser(AbstractUser):
     password_reset_code = models.CharField(max_length=50, blank=True, null=True)
     profile_image = models.ImageField(upload_to='profile_images/', blank=True, null=True)
     credit = models.IntegerField(default=0)
-    is_active = models.BooleanField(default=False)
+    # is_active = models.BooleanField(default=False)
     
     # Specify related_name for groups and user_permissions to resolve the clash
     groups = models.ManyToManyField(Group, related_name='app_users')
