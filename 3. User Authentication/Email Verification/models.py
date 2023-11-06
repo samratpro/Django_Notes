@@ -11,12 +11,11 @@ class AppUser(AbstractUser):
     credit = models.IntegerField(default=0)
     # is_active = models.BooleanField(default=False)
     
-    # Specify related_name for groups and user_permissions to resolve the clash
-    groups = models.ManyToManyField(Group, related_name='app_users')
-    user_permissions = models.ManyToManyField(Permission, related_name='app_users')
+    # Remove related_name for groups and user_permissions
+    groups = models.ManyToManyField(Group)
+    user_permissions = models.ManyToManyField(Permission)
 
     def activate(self):
         self.is_active = True
         self.activation_code = ''
         self.save()
-        
