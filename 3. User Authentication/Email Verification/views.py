@@ -62,7 +62,7 @@ def register(request):
                 return redirect('register')
                 
             else:
-                user = AppUser.objects.create_user(username=username, password=password1, first_name=first_name, last_name=last_name, email=email)
+                user = AppUser.objects.create_user(is_active=False, username=username, password=password1, first_name=first_name, last_name=last_name, email=email)
                 user.save()
                 
                 activation_code = get_random_string(30)
