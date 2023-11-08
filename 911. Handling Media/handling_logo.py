@@ -55,7 +55,7 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                  '..............',
-                'dashapp.logo_processors.logo_context',   # ******************************
+                'App_folder.logo_processors_file.logo_context_function',   # ******************************
             ],
         },
     },
