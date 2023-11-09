@@ -1,15 +1,22 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
+# from django.utils.translation import gettext_lazy as _
+# from django.contrib.auth.admin import UserAdmin
 from .models import AppUser  # Replace with your custom user model
 
-# class CustomUserAdmin(UserAdmin):
+# @admin.register(AppUser)
+# class UserAdmin(UserAdmin):
+#     """Define admin model for custom User model with no email field."""
+
 #     fieldsets = (
-#         (None, {'fields': ('username', 'password')}),
-#         ('Personal info', {'fields': ('email', 'first_name', 'last_name', 'profile_image', 'activation_code', 'credit', 'password_reset_code')}),
-#         ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
-#         ('Important dates', {'fields': ('last_login', 'date_joined')}),
-#     )
-# admin.site.register(AppUser, CustomUserAdmin)
+#         (None, {'fields': ('email', 'password')}),
+#         (_('Personal info'), {'fields': ('first_name', 'last_name', 'activation_code', 'password_reset_code', 'profile_image', 'credit')}),
+#         (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser','groups', 'user_permissions')}),
+#         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
+#         )
+#     add_fieldsets = ((None, {'classes': ('wide',),'fields': ('email', 'password1', 'password2'),}),)
+#     list_display = ('email', 'first_name', 'last_name', 'is_staff')
+#     search_fields = ('email', 'first_name', 'last_name')
+#     ordering = ('email',)
 
 admin.site.register(AppUser)
 
