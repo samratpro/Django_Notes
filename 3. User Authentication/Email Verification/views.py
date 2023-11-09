@@ -18,9 +18,9 @@ def login(request):
         return redirect('dashboard')   # ``dashboard`` path is destination
     else:
         if request.method == 'POST':
-            username = request.POST['username']
+            email = request.POST['email']
             password = request.POST['password']
-            user = authenticate(username=username, password=password)
+            user = authenticate(email=email, password=password)
             if user is not None:
                 auth.login(request, user)
                 next_url = request.GET.get('next')  # `` Get next `` will grab next targeted URL, which page was requested by User that need to Login
@@ -49,22 +49,17 @@ def register(request):
     if request.method == 'POST':
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
-        username = request.POST['username']
         password1 = request.POST['password1']
         password2 = request.POST['password2']
         email = request.POST['email']
         if password1 and password1 == password2:
-            if AppUser.objects.filter(username=username).exists():
-                messages.info(request,'This username has already taken')
-                return redirect('register')
-            elif AppUser.objects.filter(email=email):
+            if AppUser.objects.filter(email=email):
                 messages.info(request,"This email has already taken")
-                return redirect('register')
-                
+                return redirect('register')  
             else:
-                user = AppUser.objects.create_user(is_active=False, username=username, password=password1, first_name=first_name, last_name=last_name, email=email)
+                user = AppUser.objects.create_user(is_active=False, email=email, password=password1, first_name=first_name, last_name=last_name)
                 user.save()
-                
+
                 activation_code = get_random_string(30)
                 user.activation_code = activation_code
                 user.save()
