@@ -32,7 +32,7 @@ def login(request):
                 messages.info(request, 'Invalid password or username')
                 return redirect(request.get_full_path()) # When fail to login, need to return current URL cause next URL and normal URL are different
         else:
-            template = 'login.html'
+            template = 'user/login_html/login.html'
             return render(request, template)
 
 
