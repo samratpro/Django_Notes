@@ -18,7 +18,12 @@ from .models import AppUser  # Replace with your custom user model
 #     search_fields = ('email', 'first_name', 'last_name')
 #     ordering = ('email',)
 
-admin.site.register(AppUser)
 
+admin.site.register(AppUser)
+# Changing the Django Admin Header Text
+admin.site.site_header = 'AI Writing Project'   
 
 # 'profile_image', 'activation_code', 'credit', 'password_reset_code'  THESE ARE CUSTOM FIELDS HERE
+
+
+
