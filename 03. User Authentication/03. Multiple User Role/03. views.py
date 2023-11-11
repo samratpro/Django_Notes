@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login
 from .models import AppUser, Task, TaskPermission
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect
-from .models import UserProfile, Teacher, Student
+from .models import AppUser, Teacher, Student
 
 def login_view(request):
     if request.method == 'POST':
