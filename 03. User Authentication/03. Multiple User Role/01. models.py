@@ -2,10 +2,34 @@ from django.contrib.auth.models import AbstractUser, Group, Permission, BaseUser
 from django.db import models
 from django.utils.translation import gettext_lazy as _ 
 
-''' gettext_lazy Means if application is translated into different languages, 
-    this string will be translated accordingly. ''' 
+'''
+gettext_lazy Means if application is translated into different languages, 
+this string will be translated accordingly.
 
+For multiple users we can create Users two way :
+________________________________________________
+Way 1 : class AppUser(AbstractUser):
+            is_student = models.BooleanField(default=False)
+            is_teacher = models.BooleanField(default=False)
+___________________________________________________________       
+Way 2 : class AppUser(AbstractUser):
+            name = models.CharField(max_length=100)
+            email = models.EmailField(_('email address'), unique=True)
 
+        class Teacher(models.Model):
+            user_profile = models.ForeignKey(AppUser, on_delete=models.CASCADE)
+            students = models.ManyToManyField(AppUser, related_name='teachers')
+
+        class Student(models.Model):
+            user_profile = models.ForeignKey(AppUser, on_delete=models.CASCADE)
+            teachers = models.ManyToManyField(AppUser, related_name='students')
+________________________________________________________________________________
+01. First way in Custom user Here is, two fields for `is_student` and `is_teacher`
+02. Second way Two Custom Model with Custom/Default User Model Forigen Key
+    These need to Register in Admin
+________________________________________________________________________________
+
+'''
 
 class UserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -89,7 +113,8 @@ class AppUser(AbstractUser):
     def save(self, *args, **kwargs):        # For email Lowercase
         self.email = self.email.lower()
         super(AppUser, self).save(*args, **kwargs)
-        
+
+
 
 class Task(models.Model):
     title = models.CharField(max_length=100)
