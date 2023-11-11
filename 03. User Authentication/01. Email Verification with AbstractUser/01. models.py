@@ -73,3 +73,42 @@ class AppUser(AbstractUser):
     def save(self, *args, **kwargs):        # For email Lowercase
         self.email = self.email.lower()
         super(AppUser, self).save(*args, **kwargs)
+
+
+'''
+Alternate Way :
+
+class AppUser(AbstractUser):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    
+    username = None
+    email = models.EmailField(_('email address'), unique=True)
+    USERNAME_FIELD = 'email'
+    
+    # Remove related_name for groups and user_permissions
+    groups = models.ManyToManyField(Group)
+    user_permissions = models.ManyToManyField(Permission)
+    objects = UserManager()
+
+    def activate(self):
+        self.is_active = True
+        self.activation_code = ''
+        self.save()
+
+    def save(self, *args, **kwargs):
+        # For email lowercase
+        self.email = self.email.lower()
+        super(AppUser, self).save(*args, **kwargs)
+
+class Customer(models.Model):
+    user_profile = models.ForeignKey(AppUser, on_delete=models.CASCADE)
+    activation_code = models.CharField(max_length=50, blank=True, null=True)
+    password_reset_code = models.CharField(max_length=50, blank=True, null=True)
+    profile_image = models.ImageField(upload_to='profile_images/', blank=True, null=True)
+    credit = models.IntegerField(default=0)
+
+    def activate(self):
+        # Call the activate method of the associated AppUser
+        self.user_profile.activate()
+'''
