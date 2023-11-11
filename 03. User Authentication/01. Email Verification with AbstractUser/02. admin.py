@@ -2,6 +2,7 @@ from django.contrib import admin
 # from django.utils.translation import gettext_lazy as _
 # from django.contrib.auth.admin import UserAdmin
 from .models import AppUser  # Replace with your custom user model
+# from .models import Customer
 
 # @admin.register(AppUser)
 # class UserAdmin(UserAdmin):
@@ -20,6 +21,7 @@ from .models import AppUser  # Replace with your custom user model
 
 
 admin.site.register(AppUser)
+# admin.site.register(Customer)
 # Changing the Django Admin Header Text
 admin.site.site_header = 'AI Writing Project'   
 
