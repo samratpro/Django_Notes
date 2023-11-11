@@ -19,10 +19,19 @@ Way 2 : class AppUser(AbstractUser):
         class Teacher(models.Model):
             user_profile = models.ForeignKey(AppUser, on_delete=models.CASCADE)
             students = models.ManyToManyField(AppUser, related_name='teachers')
+            activation_code = models.CharField(max_length=50, blank=True, null=True)
+            password_reset_code = models.CharField(max_length=50, blank=True, null=True)
+            profile_image = models.ImageField(upload_to='profile_images/', blank=True, null=True)
+            
+            def activate(self):
+                self.user_profile.activate()
 
         class Student(models.Model):
             user_profile = models.ForeignKey(AppUser, on_delete=models.CASCADE)
             teachers = models.ManyToManyField(AppUser, related_name='students')
+            
+            def activate(self):
+                self.user_profile.activate()
 ________________________________________________________________________________
 01. First way in Custom user Here is, two fields for `is_student` and `is_teacher`
 02. Second way Two Custom Model with Custom/Default User Model Forigen Key
