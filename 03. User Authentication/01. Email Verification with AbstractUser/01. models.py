@@ -61,8 +61,12 @@ class AppUser(AbstractUser):
     
     
     # Remove related_name for groups and user_permissions
+    # Best uses is not using, where dosen't have mulple user role
+    '''
     groups = models.ManyToManyField(Group)
     user_permissions = models.ManyToManyField(Permission)
+    '''
+    
     objects = UserManager()
 
     def activate(self):
