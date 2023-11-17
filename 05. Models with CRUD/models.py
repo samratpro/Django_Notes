@@ -1,6 +1,6 @@
 # Import files
-from django.db import models     # -------------------------------------------------------------- # Global
-from django.utils.text import slugify # --------------------------------------------------------- # For Slug
+from django.db import models           # --------------------------------------------------------- # Global
+from django.utils.text import slugify  # --------------------------------------------------------- # For Slug
 
 
 # Example Model for Blog Post
