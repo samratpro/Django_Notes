@@ -49,6 +49,7 @@ def website(request):
 # Showing all data, like posts in category .....................................................
 @login_required(login_url='login/')  # login/  is custom login URL path
 def AllDataShow(request):
+    all_data = WesiteModel.objects.filter(user=request.user)  # accroding to current authenticate user data
     all_data = WesiteModel.objects.all()
     template = 'all_data_show.html'
     context = {'all_data':all_data}
@@ -58,7 +59,8 @@ def AllDataShow(request):
 @login_required(login_url='login/')  # login/  is custom login URL path
 def single_data(request, data_id):   # ```data_id``` should be pass in url as <data_id>
     template = "single_data.html"
-    sigle_data = WesiteModel.objects.get(pk=data_id)          # we can't use `id` as function argument
+    sigle_data = WesiteModel.objects.get(pk=data_id)                           # we can't use `id` as function argument
+    sigle_data = WesiteModel.objects.get(pk=data_id, user=request.user)        # only authenticate user can see this data
     context = {'sigle_data': sigle_data,'data_id': data_id}   # data id for editing request
     return render(request, template, context)
 
@@ -67,6 +69,7 @@ def single_data(request, data_id):   # ```data_id``` should be pass in url as <d
 def update_data(request, data_id):   # ```data_id``` should be pass in url as <data_id>
     template = "update_data.html"
     data = WesiteModel.objects.get(pk=data_id)
+    data = WesiteModel.objects.get(pk=data_id, user=request.user)        # only authenticate user can update this data
     if request.method == "POST":
         update_form = WebsiteForms(request.POST)
         if update_form.is_valid():
@@ -85,7 +88,7 @@ def update_data(request, data_id):   # ```data_id``` should be pass in url as <d
 # Delete Data ...................................................
 @login_required(login_url='login/')  # login/  is custom login URL path
 def delete_data(request, data_id):   # ```data_id``` should be pass in url as <data_id>
-    data = WesiteModel.objects.get(pk=data_id)
+    data = WesiteModel.objects.get(pk=data_id, user=request.user)        # only authenticate user can delete this data
     data.delete()
     return redirect('/alldata')
 
