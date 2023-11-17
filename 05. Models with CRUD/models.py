@@ -16,6 +16,8 @@ class PostCetgory(models.Model):
         super().save(*arg, **kwargs)
 
 class BlogPost(models.Model):
+    post_serial = models.AutoField(primary_key=True)                  # Auto-incrementing serial number, 1,2,3,4,5,6....
+    feature_img = models.ImageField(upload_to='images/')
     title = models.CharField(max_length=150)
     author = models.CharField(max_length=100)
     slug = models.SlugField(max_length=150, blank=True, null=True)
