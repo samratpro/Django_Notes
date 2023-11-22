@@ -1,3 +1,9 @@
+'''
+ pip install django-ckeditor
+ pip install pillow
+'''
+
+
 INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
