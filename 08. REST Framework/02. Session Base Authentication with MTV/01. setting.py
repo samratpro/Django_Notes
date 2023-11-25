@@ -1,2 +1,6 @@
 # pip install djangorestframework
-# pip install djangorestframework-simplejwt
+
+
+INSTALLED_APPS = [
+    'rest_framework',
+]
