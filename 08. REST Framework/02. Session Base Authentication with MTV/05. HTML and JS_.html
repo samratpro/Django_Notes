@@ -1,0 +1,43 @@
+<div>
+    <input type="text" name="keyword" class="form-control" id="keywordInput">
+    <button class="btn btn-primary" id="generateTitleButton">Generate Title</button>
+</div>
+
+<div>
+   <input type="text" class="form-control" name="titleinput" id="titleInput">
+</div> 
+
+
+
+
+<script>
+    // For Updaing title input field when use will click on ` Generate Title ` button
+    document.getElementById('generateTitleButton').addEventListener('click', async function(event) {
+        event.preventDefault();
+        const input_text = document.getElementById('keywordInput').value;
+    
+        const response = await fetch('/api/generate-text/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken')
+            },
+            body: JSON.stringify({ input_text : input_text })
+        });
+    
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+    
+        const data = await response.json();
+        document.getElementById('titleInput').value = data.generated_text;
+    });
+    
+    // Django has a CSRF protection system with POST Request so here is passing CSRF token
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+</script>
