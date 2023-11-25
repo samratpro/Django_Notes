@@ -15,22 +15,24 @@
     document.getElementById('generateTitleButton').addEventListener('click', async function(event) {
         event.preventDefault();
         const input_text = document.getElementById('keywordInput').value;
-    
-        const response = await fetch('/api/generate-text/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': getCookie('csrftoken')
-            },
-            body: JSON.stringify({ input_text : input_text })
-        });
-    
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
+        
+        if(input_text.length > 0){
+            const response = await fetch('/api/generate-text/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken')
+                },
+                body: JSON.stringify({ input_text : input_text })
+            });
+        
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+        
+            const data = await response.json();
+            document.getElementById('titleInput').value = data.generated_text;
         }
-    
-        const data = await response.json();
-        document.getElementById('titleInput').value = data.generated_text;
     });
     
     // Django has a CSRF protection system with POST Request so here is passing CSRF token
