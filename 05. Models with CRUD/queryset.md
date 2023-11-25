@@ -30,6 +30,8 @@
 # Here filed list: 
             Document: https://docs.djangoproject.com/en/4.2/ref/models/querysets/#id4
             ----------------------------------------------------------------------------
+| Method                   | Example Code                                 | Description                                                                      |
+|--------------------------|----------------------------------------------|----------------------------------------------------------------------------------|
 | `pk`                  | `model.objects.get(pk=api_id, user=request.user)` | ID come from fontend by refering, user is current user two query is working here |
             | `pk` = | `Primary Key` |
             | id = | Identity Like PK |
