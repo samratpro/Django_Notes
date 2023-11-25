@@ -33,8 +33,8 @@
 | Method                   | Example Code                                 | Description                                                                      |
 |--------------------------|----------------------------------------------|----------------------------------------------------------------------------------|
 | `pk`                  | `model.objects.get(pk=api_id, user=request.user)` | ID come from fontend by refering, user is current user two query is working here |
-            | `pk` = | `Primary Key` |
-            | id = | Identity Like PK |
+| `pk`                  | `model.objects.filter(int_field_name__lt=F('another_int_field_name'))` | lt(less than), and ` from django.db.models import F `|
+
             | custom_name = | Our created custom variable name |
             | custom_name__startswith = | custom_name is variable |
             | custom_name__istartswith = | custom_name is variable, Case-insensitive starts-with |
