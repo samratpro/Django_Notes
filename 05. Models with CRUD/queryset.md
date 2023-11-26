@@ -33,15 +33,13 @@
 | Method                   | Example Code                                 | Description                                                                      |
 |--------------------------|----------------------------------------------|----------------------------------------------------------------------------------|
 | `pk`                  | `model.objects.get(pk=api_id, user=request.user)` | ID come from fontend by refering, user is current user two query is working here |
-| `pk`                  | `model.objects.filter(int_field_name__lt=F('another_int_field_name'))` | lt(less than), and ` from django.db.models import F `|
-
-            | custom_name = | Our created custom variable name |
-            | custom_name__startswith = | custom_name is variable |
-            | custom_name__istartswith = | custom_name is variable, Case-insensitive starts-with |
-            | custom_name__endswith = | |
-            | custom_name__iendswith = | Case-insensitive starts-with |
-            | custom_name__contains = | custom_name is variable |
-            | custom_name__icontains = | Case-insensitive containment test |
-            | id__in= | [1, 3, 4] *** it can take multiple or Single id values |
-            | custom_name__in = | *** it can take multiple or Single id values |
-            | id__gt = | Greater than, lt(less than), lte(Less than or equal to.) thes only work for integer value |
+| `comparing and return > ` | `model.objects.filter(int_field_name__lt=F('another_int_field_name'))` | lt(less than), and ` from django.db.models import F `|
+| `comparing and return < ` | `model.objects.filter(int_field_name__gt=F('another_int_field_name'))` | gt(greater than), and ` from django.db.models import F `|
+| `startswith casesensitive ` | `model.objects.filter(field_name__startswith='value')` | Here `You` and `you` is different |
+| `istartswith non casesensitive ` | `model.objects.filter(field_name__istartswith='value')` | Here `You` and `you` is same |
+| `endswith casesensitive ` | `model.objects.filter(field_name__endswith='value')` | Here `You` and `you` is Different |
+| `iendswith non casesensitive ` | `model.objects.filter(field_name__iendswith='value')` | Here `You` and `you` is Same |
+| `contains casesensitive ` | `model.objects.filter(field_name__contains='value')` | Here `You` and `you` is Different |
+| `icontains non casesensitive ` | `model.objects.filter(field_name__icontains='value')` | Here `You` and `you` is Same |
+| `id/int list in` | `model.objects.filter(id__in=[1, 2, 3])` | it can take multiple or Single int values, here id is int datatype |
+| `name/str list in` | `model.objects.filter(name__in=['name1', 'name2', 'name3'])` | it can take multiple or Single str values, here name is str datatype |
