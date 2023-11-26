@@ -8,15 +8,25 @@
 </div> 
 
 
+<div style="display: none;">
+ <p id="generateTitlecommand">{{prompts.generate_title}}</p>
+ <p id="generateoutlinecommand">{{prompts.generate_outline}}</p>
+</div>
+
 
 
 <script>
     // For Updaing title input field when use will click on ` Generate Title ` button
     document.getElementById('generateTitleButton').addEventListener('click', async function(event) {
         event.preventDefault();
-        const input_text = document.getElementById('keywordInput').value;
-        
-        if(input_text.length > 0){
+        keyword = document.getElementById('keywordInput').value;
+        const input_text = document.getElementById('generateTitlecommand').textContent + keyword
+
+        if(keyword.length > 0){
+            document.getElementById('generateTitleButton').style.backgroundColor = '#44A6A3';  // Changing bg color when start working
+            document.getElementById('generateTitleButton').style.borderColor = '#44A6A3';      // Changing border color when start working
+            document.getElementById('generateTitleButton').textContent = '......';             // Changing text when start working
+
             const response = await fetch('/api/generate-text/', {
                 method: 'POST',
                 headers: {
@@ -32,14 +42,11 @@
         
             const data = await response.json();
             document.getElementById('titleInput').value = data.generated_text;
-        }
-    });
-    
-    // Django has a CSRF protection system with POST Request so here is passing CSRF token
-    function getCookie(name) {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop().split(';').shift();
-    }
+            document.getElementById('generateTitleButton').style.backgroundColor = '#47BAB7';  // Reback bg color
+            document.getElementById('generateTitleButton').style.borderColor = '#47BAB7';      // Reback border color
+            document.getElementById('generateTitleButton').textContent = 'Generate Title';     // Reback Title
+
+       }
+    })
 
 </script>
