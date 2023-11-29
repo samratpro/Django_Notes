@@ -3,7 +3,7 @@
 | Method                   | Example Code                                 | Description                                                                      |
 |--------------------------|----------------------------------------------|----------------------------------------------------------------------------------|
 | `all`                    | `MyModel.objects.all()`                     | Returns all objects in the QuerySet                                              |
-| `all`                    | `MyModel.objects.all().first()`                     | Returns first data                                         |
+| `first`                    | `MyModel.objects.all().first()`                     | Returns first data                                         |
 | `filter`                 | `MyModel.objects.filter(field=value)`       | Filters the QuerySet by the specified field and value                            |
 | `exclude`                | `MyModel.objects.exclude(field=value)`      | Excludes objects with the specified field and value from the QuerySet            |
 | `get`                    | `MyModel.objects.get(field=value)`          | Retrieves a single object matching the specified field and value                 |
