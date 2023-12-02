@@ -197,7 +197,7 @@ from " Manage SSH " enable Enable " SSH access " to Activate the " Terminal "
 >>> Also make sure setting.py:
 ``` ALLOWED_HOSTS = ["*"] ```# approx 28 line
 >>> Now "Restart App (according to step 2) " reload and browse domain to see Django welcome page
-```
+
 ### Step 6: Upload Project Files
 ```
 Upload all local project files:
