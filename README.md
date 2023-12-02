@@ -159,7 +159,7 @@ python manage.py migrate
 Reload: project.pythonanywhere.com
 
 ```
-##  Django Cpanel Setup Guide
+#  Django Cpanel Setup Guide
 ### Step 1: Manage Shell
 ```
 from " Manage SSH " enable Enable " SSH access " to Activate the " Terminal "
@@ -189,12 +189,13 @@ from " Manage SSH " enable Enable " SSH access " to Activate the " Terminal "
 >>> django-admin startapp appname
 ```
 ### Step 5: Make Sure the path and setup passenger_wsgi.py
-```
+
 >>> Delete everthing from this file and paste:
-    from aiwriter.wsgi import application
+```from aiwriter.wsgi import application```
     ( here aiwriter is project name, wsgi is file name, application is variable name from wsgi file 
 >>> This file will works alternative, python manage.py runserver
->>> Also make sure setting.py: ALLOWED_HOSTS = ["*"] # approx 28 line
+>>> Also make sure setting.py:
+``` ALLOWED_HOSTS = ["*"] ```# approx 28 line
 >>> Now "Restart App (according to step 2) " reload and browse domain to see Django welcome page
 ```
 ### Step 6: Upload Project Files
