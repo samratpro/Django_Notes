@@ -217,4 +217,115 @@ python manage.py createsuperuser
 ```
 
 
+#  Django Setup Guide VPS (aaPanel)
+### Step 1: Install OS
+```
+Install OS:
+Restart os : Debian / Ubuntu
+Select new password 
+```
+### Step 2: Install aaPanel
+```
+open Cmd : get ip root access:
+>>> ssh root@ip_address -p 22   (Enter)
+>>> type and enter password
+Update System
+>>> sudo apt-get update -y && sudo apt-get upgrade -y (Enter)
+Install aaPanel For ubuntu and Befina
+>>> wget -O install.sh http://www.aapanel.com/script/install-ubuntu_6.0_en.sh && sudo bash install.sh aapanel (Enter)
+Login ip will come :
+aaPanel Internet Address: http://62.8.86.183:8888/fcaeefb5
+aaPanel Internal Address: http://10.0.2.15:8888/fcaeefb5
+username: dmog1pfi
+password: 7c9ef0e0
+
+```
+A reference : https://techviewleo.com/install-and-use-aapanel-on-debian-linux/?expand_article=1
+
+### Step 3: Qucick Install EngineX / nginx Server
+```
+Here, a popup will come to install server database, etc
+
+```
+### Step 4: Install Pythom 
+Reference : https://forum.aapanel.com/d/13338-python-manager-deploy-djangoblog
+```
+1.First install the git tool to clone the DjangoBlog project:
+RedHat|CentOS：
+yum install git -y
+
+Debian|Ubuntu：
+apt-get update
+apt-get install git -y
+
+Clone the DjangoBlog project:
+cd /www/wwwroot/
+git clone https://github.com/liangliangyy/DjangoBlog
+```
+
+2.Install Python 3.8.12 or other
+
+
+3.Add DjangoBlog project
+Parameter Description:
+```
+Name：-------- Give your project a name
+Path：-------- Select the root directory of the project,Select the previously cloned directory
+Version：------ Choose the python version your project needs,Choose Python Version 3.8.12 here
+Framework：--------- The project project framework, my project here is Flask, so choose django
+Startup mode：-------Choose gunicorn here, You can switch other options according to your needs
+startuo file/dir：-----diango select the project directory to start
+Port：-------DjangoBlog defaults to 8000
+Run user：-----Start with root privileges
+Install module now：-----When adding a project, install the required modules according to the documentation of the project root directory requirements.txt.
+Start with the sys：Configure startup for the project
+```
+
+### Step 5: DataBase
+create a postgre database
+then
+```
+We never use vritual evn here, we have to use main enviroment, that will create system when install django app
+cc594d1425a1eecd52879965ff4c600f_venv/bin/pip install psycopg2
+
+setting.py
+
+DATABASES = {
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME':  'aiproject',
+       'USER': 'aiproject',
+       'PASSWORD': 'D3PKHjmPeYjMES4Z',
+       'HOST': 'localhost',
+       'PORT': '5432',
+   }
+}
+
+also change:
+ALLOWED_HOSTS = ["*", "app.domain.com"]
+
+```
+
+### Start Database operation
+// Where have manage.py
+```
+8658305af42d6efded53c296d677d3ba_venv/bin/python3 manage.py makemigrations                ### 8658305af42d6efded53c296d677d3ba_venv is envirromnent here
+8658305af42d6efded53c296d677d3ba_venv/bin/python3 manage.py migrate
+
+8658305af42d6efded53c296d677d3ba_venv/bin/python3 manage.py createsuperuser
+
+8658305af42d6efded53c296d677d3ba_venv/bin/python3 manage.py collectstatic --noinput
+8658305af42d6efded53c296d677d3ba_venv/bin/python3 manage.py compress --force
+
+```
+## Ensure 8000 port from security section
+```
+if missing add there
+```
+
+### Restart App check 
+http://ap_address:8000/ and you can see the 
+
+### Mapping with Domain URL
+
 
