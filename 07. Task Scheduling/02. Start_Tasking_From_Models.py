@@ -1,3 +1,5 @@
+""" When Tasking from Model, View never wait for task """
+
 from django.db import models
 
 class InfoBulkModel(models.Model):
