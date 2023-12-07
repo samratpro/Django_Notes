@@ -1,6 +1,7 @@
 #views.py
 from .task import *
 import threading
+
 scheduler_thread = None  
 def bulkpost(request):
     template = 'bulkpost.html'
