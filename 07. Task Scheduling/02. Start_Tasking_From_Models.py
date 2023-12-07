@@ -1,8 +1,14 @@
 """ When Tasking from Model, View never wait for task """
 
+# perform_job.py
+def perform_job(keyword):
+    print(f"Processing keyword: {keyword.keyword} for user: {keyword.user_info.user}")
+    # Add your specific job logic here
+
+
+
 from django.db import models
 from .perform_job import perform_job  # Import perform_job function
-
 class UserInfo(models.Model):
     user = models.CharField(max_length=100, unique=True)
 
