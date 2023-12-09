@@ -250,11 +250,11 @@ Here, a popup will come to install server database, etc
 ### Step 4: Install Pythom 
 Reference : https://forum.aapanel.com/d/13338-python-manager-deploy-djangoblog
 ```
-1.First install the git tool to clone the DjangoBlog project:
-RedHat|CentOS：
+First install the git tool to clone the DjangoBlog project:
+(RedHat|CentOS：)
 yum install git -y
 
-Debian|Ubuntu：
+(Debian|Ubuntu：)
 apt-get update
 apt-get install git -y
 
@@ -262,6 +262,34 @@ Clone the DjangoBlog project:
 cd /www/wwwroot/
 git clone https://github.com/liangliangyy/DjangoBlog
 ```
+1. Check file Permission
+   ```
+   cd /www/wwwroot/
+   ls -ld
+   or
+   ls -ld 'dirname'
+   ```
+   example:
+   ```
+   output : drwxrwxr-x 15 www-data www-data 4096
+   1st d - indicates directory
+   2nd rwx (owner) means the owner (www-data) has read, write, and execute permissions.
+   3rd rwx (group) means the group (www-data) has read, write, and execute permissions.
+   4th r-x (others) means others have read and execute permissions, but not write permissions.
+   15: The number of hard links to the directory.
+   www-data www-data: The owner and group of the directory, respectively.
+   4096: The size of the directory in bytes.
+   ```
+   Fix Permission:
+   ```
+   sudo chmod -R u+w /www/wwwroot/targeted_dir_name
+   Delete : - /www/wwwroot/IP_ADDRESS/.user.ini
+   Restart nginx Server:
+   sudo systemctl restart nginx
+   sudo service nginx restart
+
+   It can do also from aapanel
+   ```
 
 2.Install Python 3.8.12 or other
 
@@ -275,8 +303,9 @@ Version：------ Choose the python version your project needs,Choose Python Vers
 Framework：--------- The project project framework, my project here is Flask, so choose django
 Startup mode：-------Choose gunicorn here, You can switch other options according to your needs
 startuo file/dir：-----diango select the project directory to start
-Port：-------DjangoBlog defaults to 8000
-Run user：-----Start with root privileges
+Port：-------DjangoBlog defaults to `8000`
+Run user：-----Start with `root` privileges
+commands ----------- ' Blank '
 Install module now：-----When adding a project, install the required modules according to the documentation of the project root directory requirements.txt.
 Start with the sys：Configure startup for the project
 ```
