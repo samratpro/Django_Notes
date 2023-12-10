@@ -6,7 +6,8 @@
 4 Proxy  
 5 Pythonanywhere Setup docs link  
 6 Pythonanywhere Setup Guide  
-7 Django Cpanel Setup Guide  
+7 Django Cpanel Setup Guide
+8 Django Setup in VPS
 ```
 
 ## Jinja -HTML
@@ -218,6 +219,7 @@ python manage.py createsuperuser
 
 
 #  Django Setup Guide VPS (aaPanel)
+(aapanel alternatives : https://www.cloudpanel.io/blog/vps-management/)
 ### Step 1: Install OS
 ```
 Install OS:
