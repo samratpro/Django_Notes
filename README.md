@@ -229,6 +229,7 @@ Select new password
 open Cmd : get ip root access:
 >>> ssh root@ip_address -p 22   (Enter)
 >>> type and enter password
+
 Update System
 >>> sudo apt-get update -y && sudo apt-get upgrade -y (Enter)
 >>> sudo apt-get autoremove
@@ -246,6 +247,9 @@ aaPanel Internet Address: http://62.8.86.183:8888/fcaeefb5
 aaPanel Internal Address: http://10.0.2.15:8888/fcaeefb5
 username: dmog1pfi
 password: 7c9ef0e0
+
+>>> bt (for aapanel options in cli)
+>>> 
 
 ```
 A reference : https://techviewleo.com/install-and-use-aapanel-on-debian-linux/?expand_article=1
