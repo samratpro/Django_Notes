@@ -222,17 +222,23 @@ python manage.py createsuperuser
 ```
 Install OS:
 Restart os : Debian / Ubuntu
-Select new password 
-```
-### Step 2: Install aaPanel
-```
+Select new password
+
 open Cmd : get ip root access:
 >>> ssh root@ip_address -p 22   (Enter)
 >>> type and enter password
 Update System
 >>> sudo apt-get update -y && sudo apt-get upgrade -y (Enter)
+>>> sudo apt-get autoremove
+>>> reboot
+
+```
+### Step 2: Install aaPanel
+```
 Install aaPanel For ubuntu and Befina
 >>> wget -O install.sh http://www.aapanel.com/script/install-ubuntu_6.0_en.sh && sudo bash install.sh aapanel (Enter)
+(https://www.aapanel.com/new/download.html#install)
+
 Login ip will come :
 aaPanel Internet Address: http://62.8.86.183:8888/fcaeefb5
 aaPanel Internal Address: http://10.0.2.15:8888/fcaeefb5
