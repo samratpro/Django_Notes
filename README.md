@@ -248,11 +248,14 @@ aaPanel Internal Address: http://10.0.2.15:8888/fcaeefb5
 username: dmog1pfi
 password: 7c9ef0e0
 
->>> bt (for aapanel options in cli)
->>> 
+>>> bt (for aapanel options in CLI)
+>>>
+A reference : https://techviewleo.com/install-and-use-aapanel-on-debian-linux/?expand_article=1
+( all commands is here, all option has in CLI)
 
 ```
-A reference : https://techviewleo.com/install-and-use-aapanel-on-debian-linux/?expand_article=1
+
+
 
 ### Step 3: Qucick Install EngineX / nginx Server
 ```
