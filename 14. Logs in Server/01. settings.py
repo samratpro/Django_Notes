@@ -11,6 +11,8 @@ MIDDLEWARE = [
 
 
 
+from .appname import print_logger.py
+
 # Django LOGGING in File
 
 LOGGING = {
