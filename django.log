@@ -2,7 +2,7 @@
 
 
 
-# Django LOGGING
+# Django File LOGGING
 
 LOGGING = {
     'version': 1,
@@ -22,6 +22,28 @@ LOGGING = {
         },
     },
 }
+
+
+# Django Console LOGGING
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django.db.backends': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+    },
+}
+
+
 
 # to see log file
 /www/wwwroot/AI-SaaS/logs# tail -f django.log
