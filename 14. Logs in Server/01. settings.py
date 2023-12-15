@@ -1,28 +1,24 @@
-
-
-MIDDLEWARE = [
-    # ...
-    'your_app.middleware.RequestLoggingMiddleware',
-    # Make sure it comes before 'django.middleware.common.CommonMiddleware'
-    'django.middleware.common.CommonMiddleware',  #  It exist alwyes
-    # ...
-]
-
-
-
-
-from .appname import print_logger.py
-
-# Django LOGGING in File
-
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
     'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        },
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': '/www/wwwroot/AI-SaaS/logs/django.log',
+            'filename': '/path/to/your/file.log',   # Change path
+            'formatter': 'simple'
         },
     },
     'loggers': {
@@ -31,27 +27,10 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': True,
         },
-    },
+    }
 }
 
-# or
-
-
-# Django LOGGING in Console
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        'django.db.backends': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-    },
-}
+if DEBUG:
+    # make all loggers use the console.
+    for logger in LOGGING['loggers']:
+        LOGGING['loggers'][logger]['handlers'] = ['console']
