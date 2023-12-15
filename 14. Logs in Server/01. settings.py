@@ -4,7 +4,7 @@ MIDDLEWARE = [
     # ...
     'your_app.middleware.RequestLoggingMiddleware',
     # Make sure it comes before 'django.middleware.common.CommonMiddleware'
-    'django.middleware.common.CommonMiddleware',
+    'django.middleware.common.CommonMiddleware',  #  It exist alwyes
     # ...
 ]
 
