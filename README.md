@@ -375,5 +375,12 @@ if missing add there
 http://ap_address:8000/ and you can see the 
 
 ### Mapping with Domain URL
+```
+1. First change Domain/Subdomain DNS IP With VPS IP
+2. Then from Application > Map > add domain
+3. In Security section add : 8000 port with TCP/UDP protocol  (it is for IP)
+4. And redirect IP with main domain
+
+```
 
 
