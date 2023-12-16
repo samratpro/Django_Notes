@@ -1,36 +1,22 @@
-LOGGING = {
-    'version': 1,
-    'formatters': {
-        'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
-        },
-        'simple': {
-            'format': '%(levelname)s %(message)s'
-        },
-    },
-    'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-            'formatter': 'simple'
-        },
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': '/path/to/your/file.log',   # Change path
-            'formatter': 'simple'
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['file'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-    }
-}
+import logging
+import sys
+from django.conf import settings
+from pathlib import Path
 
-if DEBUG:
-    # make all loggers use the console.
-    for logger in LOGGING['loggers']:
-        LOGGING['loggers'][logger]['handlers'] = ['console']
+# Configure the root logger to capture all messages
+logging.basicConfig(level=logging.DEBUG)
+
+# Add a StreamHandler to capture messages to the console
+console_handler = logging.StreamHandler(sys.stdout)
+console_handler.setLevel(logging.DEBUG)
+console_handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
+logging.getLogger().addHandler(console_handler)
+
+# Add a FileHandler to capture messages to a log file
+file_handler = logging.FileHandler(Path(settings.BASE_DIR) / 'logs' / 'console.log')
+file_handler.setLevel(logging.DEBUG)
+file_handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
+logging.getLogger().addHandler(file_handler)
+
+# Now, when you use the print function, the messages will be captured by the logging handlers
+print('This message will be captured by the logging handlers')
