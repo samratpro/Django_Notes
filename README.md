@@ -325,7 +325,7 @@ Install module now：-----When adding a project, install the required modules ac
 Start with the sys：Configure startup for the project
 ```
 
-### Step 5: DataBase
+### Step 5: DataBase, Domain & CSRF Fix
 create a postgre database
 then
 ```
@@ -346,7 +346,10 @@ DATABASES = {
 }
 
 also change:
-ALLOWED_HOSTS = ["*", "app.domain.com"]
+ALLOWED_HOSTS = ['*','app.domain.com']
+CSRF_TRUSTED_ORIGINS = [
+    'https://app.domain.com'
+]
 
 ```
 
