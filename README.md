@@ -357,9 +357,10 @@ ALLOWED_HOSTS = ["*", "app.domain.com"]
 8658305af42d6efded53c296d677d3ba_venv/bin/python3 manage.py migrate
 
 8658305af42d6efded53c296d677d3ba_venv/bin/python3 manage.py createsuperuser
+8b2c22c93ab3f63b80ec5360ff498393_venv/bin/python3 manage.py migrate
 
 8658305af42d6efded53c296d677d3ba_venv/bin/python3 manage.py collectstatic --noinput
-8658305af42d6efded53c296d677d3ba_venv/bin/python3 manage.py compress --force
+8b2c22c93ab3f63b80ec5360ff498393_venv/bin/python3 manage.py migrate
 
 ```
 ## Ensure 8000 port from security section
