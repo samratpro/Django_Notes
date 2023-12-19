@@ -1,6 +1,8 @@
 # Install Celery
 pip install celery
 
+# Documentation :  https://docs.celeryq.dev/en/stable/django/first-steps-with-django.html#using-celery-with-django
+
 # Install Redis (if not installed)
 # Windows, Download : https://www.memurai.com/
 # Macos, Download   : https://redis.io/docs/install/install-redis/install-redis-on-mac-os/
