@@ -1,5 +1,6 @@
 # Install Celery
 pip install celery
+pip install django-celery-results
 pip install redis
 
 # Documentation :  https://docs.celeryq.dev/en/stable/django/first-steps-with-django.html#using-celery-with-django
