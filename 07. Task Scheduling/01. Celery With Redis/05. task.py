@@ -1,9 +1,9 @@
-# myapp/tasks.py
+# app_folder/tasks.py
 
 from celery import shared_task
 
 @shared_task
-def your_task_name():
+def content_creation_job(arg1, arg2):
     # Task logic goes here
     pass
 
