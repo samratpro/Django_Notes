@@ -31,5 +31,7 @@ CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 # After setup or update -> navigate to your Django project directory, and run the Celery worker
 >>> celery -A project_name worker -l info   # replace with your project name
 
+>>> celery -A project_name worker --loglevel=info  # replace with your project name
+
 # Debug
 >>> celery -A aiproject worker -l debug
