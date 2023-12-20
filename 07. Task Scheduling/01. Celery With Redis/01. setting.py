@@ -10,7 +10,11 @@ pip install celery
 sudo apt update
 sudo apt install redis-server
 
-# For other systems, refer to the Redis installation guide
+
+# Install celery in app section
+INSTALLED_APPS = [
+    'celery',
+]
 
 
 # Celery configuration for Redis as the broker
