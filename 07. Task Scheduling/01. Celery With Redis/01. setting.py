@@ -1,5 +1,6 @@
 # Install Celery
 pip install celery
+pip install redis
 
 # Documentation :  https://docs.celeryq.dev/en/stable/django/first-steps-with-django.html#using-celery-with-django
 
@@ -14,6 +15,7 @@ sudo apt install redis-server
 # Install celery in app section
 INSTALLED_APPS = [
     'celery',
+    'django_celery_results'
 ]
 
 
