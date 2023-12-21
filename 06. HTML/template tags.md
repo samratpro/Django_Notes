@@ -2,7 +2,8 @@
 ---
 | Tags               | Description                                                  | Example                                            |
 |--------------------|--------------------------------------------------------------|----------------------------------------------------|
-| `{% for %}`        | Loops over a sequence                                        | `{% for item in items %} {{ item }} {% endfor %}`  |
+| `{% for %}`        | Loops over a sequence                                        | `{% for item in items %} {{ forloop.counter }} {% endfor %}`  |
+| `{% counter %}`    | forloop.counter                                              | `{% for item in items %} {{ item }} {% endfor %}`  |
 | `{% if %}`         | Checks if a condition is true                                | `{% if user.is_authenticated %} Hello, {{ user.username }}! {% endif %}` |
 | `{% else %}`       | Provides an alternative for the preceding `{% if %}`         | `{% if user.is_authenticated %} Hello, {{ user.username }}! {% else %} Please log in. {% endif %}` |
 | `{% endif %}`      | Ends an `{% if %}` block                                     | `{% if user.is_authenticated %} Hello, {{ user.username }}! {% endif %}` |
