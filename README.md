@@ -1,15 +1,3 @@
-# Table of Content:
-```
-1 Jinja -HTML  
-2 Extensions In VS Code  
-3 Postgre Setup  
-4 Proxy  
-5 Pythonanywhere Setup docs link  
-6 Pythonanywhere Setup Guide  
-7 Django Cpanel Setup Guide
-8 Django Setup in VPS
-```
-
 ## Jinja -HTML
 ```
 - Required Plugin : Django
