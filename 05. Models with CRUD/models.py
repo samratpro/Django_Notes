@@ -1,6 +1,7 @@
 # Import files
 from django.db import models           # --------------------------------------------------------- # Global
 from django.utils.text import slugify  # --------------------------------------------------------- # For Slug
+from django.utils import timezone      # --------------------------------------------------------- # For django server time
 
 
 # Example Model for Blog Post
@@ -23,6 +24,7 @@ class BlogPost(models.Model):
     author = models.CharField(max_length=100)
     slug = models.SlugField(max_length=150, blank=True, null=True)
     date = models.DateTimeField(auto_now_add=True)
+    expire_date = models.DateField(default=timezone.now)
     modified_date = models.DateField(auto_now=True)
     text = models.TextField(blank=True, null=True)
 
