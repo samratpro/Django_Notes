@@ -24,7 +24,7 @@ class BlogPost(models.Model):
     author = models.CharField(max_length=100)
     slug = models.SlugField(max_length=150, blank=True, null=True)
     date = models.DateTimeField(auto_now_add=True)
-    expire_date = models.DateField(default=timezone.now)
+    expire_date = models.DateField(default=timezone.now)  # timezone.now `date` timezone.now() `date and time`
     modified_date = models.DateField(auto_now=True)
     text = models.TextField(blank=True, null=True)
 
