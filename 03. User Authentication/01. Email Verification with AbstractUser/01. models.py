@@ -75,7 +75,8 @@ class AppUser(AbstractUser):
         self.save()
     
     def save(self, *args, **kwargs):        # For email Lowercase
-        self.email = self.email.lower()
+        if self.email:
+            self.email.lower()
         super(AppUser, self).save(*args, **kwargs)
 
 
