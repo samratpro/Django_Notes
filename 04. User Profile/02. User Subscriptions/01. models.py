@@ -91,7 +91,7 @@ class AppUser(AbstractUser):
     def purchase_credit(self, credit_package):
         self.credit_package = credit_package
         self.credit += credit_package.credits
-        self.expire_date = self.expire_date +  timezone.timedelta(credit_package.days)
+        self.expire_date = timezone.now() +  timezone.timedelta(credit_package.days)
 
         self.save()
 
