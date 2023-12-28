@@ -19,7 +19,7 @@ class PostCetgory(models.Model):
 class BlogPost(models.Model):
     post_serial = models.AutoField(primary_key=True)                   # Auto-incrementing serial number, 1,2,3,4,5,6....
     user = models.ForeignKey(AppUser, on_delete=models.CASCADE, null=True, blank=True)   # separating User accroding to authenticate
-    category = models.ForeignKey(PostCetgory, on_delete=models.SET_NULL, null=True, blank=True)   # separating User accroding to authenticate
+    category = models.ForeignKey(PostCetgory, on_delete=models.SET_NULL, null=True, blank=True)   # If user will delete, category never delete
     feature_img = models.ImageField(upload_to='images/')
     title = models.CharField(max_length=150)
     author = models.CharField(max_length=100)
@@ -36,6 +36,25 @@ class BlogPost(models.Model):
         self.slug = slugify(self.title)
         super().save(*arg, **kwargs)
 
+
+#  Each book can have only one author, but an author can have multiple books.
+class Author(models.Model):
+    name = models.CharField(max_length=100)
+class Book(models.Model):
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True, blank=True)  # If author delete All associate Book will delete
+    author = models.ForeignKey(Author,on_delete=models.SET_NULL, null=True, blank=True)   # If author delete associate Book will remain
+
+
+# each Profile is linked to exactly one User, and each User has only one Profile.
+from django.contrib.auth.models import User
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+#  Each Course can have multiple Students enrolled, and each Student can take multiple Courses.
+class Student(models.Model):
+    name = models.CharField(max_length=100)
+class Course(models.Model):
+    students = models.ManyToManyField(Student)
 
 
 
