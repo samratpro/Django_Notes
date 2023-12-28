@@ -4,6 +4,7 @@
 |--------------------------|----------------------------------------------|----------------------------------------------------------------------------------|
 | `all`                    | `MyModel.objects.all()`                     | Returns all objects in the QuerySet                                              |
 | `first`                    | `MyModel.objects.all().first()`                     | Returns first data                                         |
+| `exist`                    | `MyModel.objects.all().exists()`                     | Returns if exist database                                        |
 | `filter`                 | `MyModel.objects.filter(field=value)`       | Filters the QuerySet by the specified field and value                            |
 | `exclude`                | `MyModel.objects.exclude(field=value)`      | Excludes objects with the specified field and value from the QuerySet            |
 | `get`                    | `MyModel.objects.get(field=value)`          | Retrieves a single object matching the specified field and value                 |
