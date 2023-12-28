@@ -53,6 +53,7 @@ file_name = '''makingpost.html'''
             <textarea name="keyword_list" class="form-control" id="floatingTextarea2" style="height: 300px"></textarea>
         </div>
        <!-------------- HTML Dropdow Selection one_to_one or many_to_many or Forignkey relation -------------------------->
+       <!-------------- views.py  grab website url``` website_url = WesiteModel.objects.get(pk=website_id).website_url ```  -------------------------->
         <select name="website_id" class="form-select mt-3" aria-label="Default select example">
             <option selected>Select Website</option>
             {% for single_website in website  %}
