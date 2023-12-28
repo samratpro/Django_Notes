@@ -19,6 +19,7 @@ class PostCetgory(models.Model):
 class BlogPost(models.Model):
     post_serial = models.AutoField(primary_key=True)                   # Auto-incrementing serial number, 1,2,3,4,5,6....
     user = models.ForeignKey(AppUser, on_delete=models.CASCADE, null=True, blank=True)   # separating User accroding to authenticate
+    category = models.ForeignKey(PostCetgory, on_delete=models.SET_NULL, null=True, blank=True)   # separating User accroding to authenticate
     feature_img = models.ImageField(upload_to='images/')
     title = models.CharField(max_length=150)
     author = models.CharField(max_length=100)
