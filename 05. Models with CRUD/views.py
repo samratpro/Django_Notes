@@ -1,6 +1,7 @@
 # General Query All Data
 from .models import *
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404  # search by ID
 from django.db.models import Q # Multiple DB query
 
 
