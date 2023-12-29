@@ -55,21 +55,21 @@ file_name = '''makingpost.html'''
        <!-------------- HTML Dropdow Selection one_to_one or many_to_many or Forignkey relation -------------------------->
        <!-------------- views.py  grab website url``` website_url = WesiteModel.objects.get(pk=website_id).website_url ```  -------------------------->
         <select name="website_id" class="form-select mt-3" aria-label="Default select example">
-            <option selected>Select Website</option>
+            <label class="form-label">Select Website</label>
             {% for single_website in website  %}
             <option value="{{single_website.id}}">{{single_website.website_name}}</option>
             {% endfor %}
         </select>
 
         <select name="openaiapi_id" class="form-select mt-3" aria-label="Default select example">
-            <option selected>Select OpenAI API</option>
+            <label class="form-label">Select OpenAI API</label>
             {% for single_openaiapi in openaiapi  %}
             <option value="{{single_openaiapi.id}}">{{single_openaiapi.name}}</option>
             {% endfor %}
         </select>
 
         <select name="youtubeapi_id" class="form-select mt-3" aria-label="Default select example">
-            <option selected>Select Youtube API</option>
+            <label class="form-label">Select Youtube API</label>
             {% for single_youtubeapi in youtubeapi  %}
             <option value="{{single_youtubeapi.id}}">{{single_youtubeapi.name}}</option>
             {% endfor %}
