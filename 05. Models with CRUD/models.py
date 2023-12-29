@@ -37,6 +37,7 @@ class BlogPost(models.Model):
         super().save(*arg, **kwargs)
 
 
+# ********* ForeignKey *** vs *** OneToOneField *** vs *** ManyToManyField ****************
 #  Each book can have only one author, but an author can have multiple books.
 class Author(models.Model):
     name = models.CharField(max_length=100)
@@ -44,9 +45,7 @@ class Book(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True, blank=True)  # If author delete All associate Book will delete
     author = models.ForeignKey(Author,on_delete=models.SET_NULL, null=True, blank=True)   # If author delete associate Book will remain
 
-
 # each Profile is linked to exactly one User, and each User has only one Profile.
-from django.contrib.auth.models import User
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
@@ -57,10 +56,18 @@ class Course(models.Model):
     students = models.ManyToManyField(Student)
 
 
+# ********** When required Two field both unique at a time ***********
+class Vote(models.Model):
+    vote_created_by = models.ForeignKey(AppUser, related_name='votes_given', on_delete=models.CASCADE, blank=True, null=True)
+    # Each user can give one vote, it can himself or anyone
 
-
-
-
+class VoteRecord(models.Model):
+    vote = models.ForeignKey(Vote, on_delete=models.CASCADE)
+    student = models.ForeignKey(user, on_delete=models.CASCADE)
+    voted_for = models.ForeignKey(AppUser, on_delete=models.CASCADE, related_name='received_votes')
+    voted_at = models.DateTimeField(default=timezone.now)
+    class Meta:
+        unique_together = ('vote', 'student')  # Ensures each student can give one vote only
 
 
 
