@@ -2,6 +2,11 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .models import *  # Replace with your custom user model
 
+# admin.site.register(AppUser)
+
+# Changing the Django Admin Header Text
+admin.site.site_header = 'AI Writing Project'   
+
 
 # Custom Admin View for User Management
 # Included password Reset Fields
@@ -29,15 +34,13 @@ class AppUserAdmin(UserAdmin):
         }),
     )
 
-    # Credit purchase when admin select and save a package with model save override
     def save_model(self, request, obj, form, change):
         super().save_model(request, obj, form, change)
         # Check if a credit package is selected and update user's credit accordingly
-        selected_package = form.cleaned_data.get('credit_package')  # credit_package is 
+        selected_package = form.cleaned_data.get('credit_package')
         if selected_package:
-            obj.purchase_credit(selected_package)  # This method will purchase credit
+            obj.purchase_credit(selected_package)
 
-    # Check credit expiration checking when admin & staff check any profile
     def changelist_view(self, request, extra_context=None):
         # Check credit expiration for all users
         users = AppUser.objects.all()
