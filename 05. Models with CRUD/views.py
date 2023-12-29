@@ -27,7 +27,7 @@ from django.db.models import Q # Multiple DB query
 ``` MTV(Models Views Template) data won't affect by the User action ..without Logic.., ```
 """
 
-# Save data .....................................
+# Save data ***********************************************
 @login_required(login_url='login/')  # login/  is custom login URL path
 def website(request):
     template = 'add_data_.html'
@@ -47,7 +47,7 @@ def website(request):
         context = {'data_form':form}
         return render(request, template, context=context)
 
-# Showing all data, like posts in category .....................................................
+# Showing all data, like posts in category ***********************************************
 @login_required(login_url='login/')  # login/  is custom login URL path
 def AllDataShow(request):
     all_data = WesiteModel.objects.filter(user=request.user)  # accroding to current authenticate user data
@@ -65,7 +65,7 @@ def single_data(request, data_id):   # ```data_id``` should be pass in url as <d
     context = {'sigle_data': sigle_data,'data_id': data_id}   # data id for editing request
     return render(request, template, context)
 
-# Update Data ...................................................
+# Update Data ***********************************************
 @login_required(login_url='login/')  # login/  is custom login URL path
 def update_data(request, data_id):   # ```data_id``` should be pass in url as <data_id>
     template = "update_data.html"
@@ -86,7 +86,7 @@ def update_data(request, data_id):   # ```data_id``` should be pass in url as <d
     context = {'update_form': update_form,'data_id': data_id}
     return render(request, template, context)
 
-# Delete Data ...................................................
+# Delete Data ***********************************************
 @login_required(login_url='login/')  # login/  is custom login URL path
 def delete_data(request, data_id):   # ```data_id``` should be pass in url as <data_id>
     data = WesiteModel.objects.get(pk=data_id, user=request.user)        # only authenticate user can delete this data
@@ -94,7 +94,7 @@ def delete_data(request, data_id):   # ```data_id``` should be pass in url as <d
     return redirect('/alldata')
 
 
-# Select Data From different Model From HTML Template
+# Select Data From different Model From HTML Template ***********************************************
 @login_required(login_url='login/')  # login/  is custom login URL path
 from .task import *
 import threading
@@ -141,4 +141,22 @@ def bulkpost(request):
         return redirect('bulkpost')
     
     return render(request, template, context=context)
+
+
+
+# Select Data From different Model and Save another model  (ForignKey) ***********************************************
+@login_required(login_url='login/')
+def profile(request):
+    user_profile = AppUser.objects.get(email=request.user.email)
+    all_deparment = Deperment.objects.all()
+    context = {'user_profile': user_profile, 'all_deparment': all_deparment}
+
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        deparment_id = request.POST.get('deparment')
+
+        if deparment_id:
+            deparment_instance = get_object_or_404(Deperment, id=deparment_id)
+            user_profile.deperment = deparment_instance
+            user_profile.save()
 
