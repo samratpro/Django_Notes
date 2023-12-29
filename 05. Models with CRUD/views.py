@@ -157,6 +157,6 @@ def profile(request):
 
         if deparment_id:
             deparment_instance = get_object_or_404(Deperment, id=deparment_id)
-            user_profile.deperment = deparment_instance
+            user_profile.deperment = deparment_instance    # **************** Foreign key take another class's instance so have to pass instance
             user_profile.save()
 
