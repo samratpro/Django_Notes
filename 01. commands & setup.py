@@ -41,8 +41,11 @@ static
 🔽 media
    ▶️ images 
 
-# For static update
+# For static update, especially need when application in server
+# After any File update of static folder, CSS, JS, Images need to run this command
 python manage.py collectstatic
+# We can use this command either image shows from static folder or database
+# <img src="{% if request.user.profile_image %}{{request.user.profile_image.url}}{% else %}{% static "images/profile/user.png" %}{% endif %}" alt="" width="35" height="35" class="rounded-circle">
 
 404 Page
 # >>> 404.html and Debug is false for 404 page
