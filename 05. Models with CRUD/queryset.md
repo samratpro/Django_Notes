@@ -29,12 +29,13 @@
 | `none`                   | `MyModel.objects.none()`                    | Returns an empty QuerySet                                                        |
 | `union`                  | `queryset1.union(queryset2)`                | Returns a QuerySet that is the union of two QuerySets                            |
 
-# Here filed list: 
-            Document: https://docs.djangoproject.com/en/4.2/ref/models/querysets/#id4
-            ----------------------------------------------------------------------------
+# Here Filter list: 
+```
+Document: https://docs.djangoproject.com/en/4.2/ref/models/querysets/#id4
+```
 | Method                   | Example Code                                 | Description                                                                      |
 |--------------------------|----------------------------------------------|----------------------------------------------------------------------------------|
-| `pk`                  | `model.objects.get(pk=api_id, user=request.user)` | ID come from fontend by refering, user is current user two query is working here |
+| `pk`                      | `model.objects.get(pk=api_id, user=request.user)` | ID come from fontend by refering, user is current user two query is working here |
 | `comparing and return > ` | `model.objects.filter(int_field_name__lt=F('another_int_field_name'))` | lt(less than), and ` from django.db.models import F `|
 | `comparing and return < ` | `model.objects.filter(int_field_name__gt=F('another_int_field_name'))` | gt(greater than), and ` from django.db.models import F `|
 | `startswith casesensitive ` | `model.objects.filter(field_name__startswith='value')` | Here `You` and `you` is different |
