@@ -36,6 +36,7 @@ Document: https://docs.djangoproject.com/en/4.2/ref/models/querysets/#id4
 | Method                   | Example Code                                 | Description                                                                      |
 |--------------------------|----------------------------------------------|----------------------------------------------------------------------------------|
 | `pk`                      | `model.objects.get(pk=api_id, user=request.user)` | ID come from fontend by refering, user is current user two query is working here |
+| `ecxclude in `  | `api = info_bulk_model.objects.filter(user=request.user).exclude(status__in=["Completed", "Failed"])` | all obj of a user without 2 condition |
 | `comparing and return > ` | `model.objects.filter(int_field_name__lt=F('another_int_field_name'))` | lt(less than), and ` from django.db.models import F `|
 | `comparing and return < ` | `model.objects.filter(int_field_name__gt=F('another_int_field_name'))` | gt(greater than), and ` from django.db.models import F `|
 | `startswith casesensitive ` | `model.objects.filter(field_name__startswith='value')` | Here `You` and `you` is different |
