@@ -1,5 +1,7 @@
 pip install django-tinymce
 
+https://django-tinymce.readthedocs.io/en/latest/installation.html
+
 
 
 #Download JS files:
