@@ -70,7 +70,9 @@ class VoteRecord(models.Model):
         unique_together = ('vote', 'student')  # Ensures each student can give one vote only
 
 
-
+# Other Fields ...
+integerfield = models.IntegerField(default=0)
+integerfield = models.DecimalField(default=2.5)
 
 # # For JSON Field only
 # import jsonfield
