@@ -7,7 +7,7 @@ https://django-tinymce.readthedocs.io/en/latest/installation.html
 #Download JS files:
 https://download.tiny.cloud/tinymce/community/tinymce_6.8.2.zip
 
-static / tinymce / files
+static / tinymcejs / files
 
 '''
 /* Hiding Tinymce Credit*/
