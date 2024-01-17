@@ -9,6 +9,18 @@ https://download.tiny.cloud/tinymce/community/tinymce_6.8.2.zip
 
 static / tinymce / files
 
+'''
+/* Hiding Tinymce Credit*/
+.tox-promotion, .tox-statusbar__branding{
+  display: none!important;
+}
+.tox .tox-promotion{
+    display: none!important;
+}
+.tox .tox-statusbar__right-container{
+    display: none!important;
+}
+'''
 
 
 # Appp
