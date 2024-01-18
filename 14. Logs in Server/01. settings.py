@@ -3,6 +3,10 @@ import sys
 from django.conf import settings
 from pathlib import Path
 
+
+# path 
+# logs / console.log  
+
 # Configure the root logger to capture all messages
 logging.basicConfig(level=logging.DEBUG)
 
