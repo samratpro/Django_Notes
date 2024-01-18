@@ -72,7 +72,7 @@ class VoteRecord(models.Model):
 
 # Other Fields ...
 integerfield = models.IntegerField(default=3)   # IntegerField
-integerfield = models.DecimalField(default=2.5) # Floating and IntegerField Fields
+integerfield = models.DecimalField(default=2.5, max_digits=5, decimal_places=2) # Floating and IntegerField Fields , decimal_places = 2.00
 
 # # For JSON Field only
 # import jsonfield
