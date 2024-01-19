@@ -9,4 +9,5 @@ def your_view_function(request):
     age = 25
     logger.info('This is bulk info posting page, testing for Python logger')
     logger.info(f' This message in from logger, name: {name} and  age :{str(age)}')
+    # Logger can take one argument not like print() function
     return render(request, template, context=context)
