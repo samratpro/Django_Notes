@@ -1,26 +1,33 @@
-import logging
-import sys
-from django.conf import settings
-from pathlib import Path
 
-
-# path 
+# path - Need to create ` logs ` folder and `console.log` file in folder
 # logs / console.log  
 
-# Configure the root logger to capture all messages
-logging.basicConfig(level=logging.DEBUG)
+import os
+from pathlib import Path
+from django.conf import settings
 
-# Add a StreamHandler to capture messages to the console
-console_handler = logging.StreamHandler(sys.stdout)
-console_handler.setLevel(logging.DEBUG)
-console_handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
-logging.getLogger().addHandler(console_handler)
-
-# Add a FileHandler to capture messages to a log file
-file_handler = logging.FileHandler(Path(settings.BASE_DIR) / 'logs' / 'console.log')
-file_handler.setLevel(logging.DEBUG)
-file_handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
-logging.getLogger().addHandler(file_handler)
-
-# Now, when you use the print function, the messages will be captured by the logging handlers
-print('This message will be captured by the logging handlers')
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+        "file": {
+            "level": "DEBUG",
+            "class": "logging.FileHandler",
+            "filename": str(Path(settings.BASE_DIR) / 'logs' / 'console.log'),
+        },
+    },
+    "root": {
+        "handlers": ["console", "file"],
+        "level": "WARNING",
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console", "file"],
+            "level": os.getenv("DJANGO_LOG_LEVEL", "INFO"),
+            "propagate": True,
+        },
+    },
+}
