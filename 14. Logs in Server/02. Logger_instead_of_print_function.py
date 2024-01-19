@@ -2,13 +2,11 @@
 
 import logging
 # Get an instance of a logger
-logger = logging.getLogger(__name__)
-
+logger = logging.getLogger("django")
 
 def your_view_function(request):
-    if condition:
-        logger.error('An error occurred')  # Example of logging an error
-        # Your error handling code
-    else:
-        logger.info('This is bulk info posting page, testing for Python logger')
-        return render(request, template, context=context)
+    name = 'Samrat'
+    age = 25
+    logger.info('This is bulk info posting page, testing for Python logger')
+    logger.info(f' This message in from logger, name: {name} and  age :{str(age)}')
+    return render(request, template, context=context)
