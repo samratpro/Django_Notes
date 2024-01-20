@@ -11,7 +11,9 @@ pip install redis
 # For Ubuntu
 sudo apt update
 sudo apt install redis-server
+sudo apt-get install redis-server
 
+# >>> redis-server  command to check redis server is running
 
 # Install celery in app section
 INSTALLED_APPS = [
