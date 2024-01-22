@@ -4,6 +4,23 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404  # search by ID
 from django.db.models import Q # Multiple DB query
 
+# CRUD
+# Create
+Model.objects.create('argements)
+# Read
+Model.objects.get(pk=data_id)
+VoteRecord.objects.filter('argeuments')
+
+# Update
+Model.objects.get(pk=data_id)
+Model.objects.filter('argeuments').frist()
+Model.arg = 'data'
+Model.save()
+# Delete
+Model.objects.get(pk=data_id)
+Model.objects.filter('argeuments').frist()
+Model.delete()
+                     
 
 """
 ``` All Document: https://github.com/samratpro/Django-Component/blob/master/Model/queryset.md ```
