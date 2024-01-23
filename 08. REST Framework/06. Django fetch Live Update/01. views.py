@@ -5,6 +5,8 @@
 
 from django.http import JsonResponse
 from django.template.loader import render_to_string
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='login')
 def bulk_posting(request):
@@ -16,9 +18,11 @@ def bulk_posting(request):
         keyword_completed = info_bulk_model.objects.filter(user=curent_user, status='Completed')
         keyword_faild = info_bulk_model.objects.filter(user=curent_user, status='Failed')
 
+        # When url call is normal then render template when call is js fetch then return JSON for page update
+        # Here pending_keywords.html and running_keywords.html are part of posting in seperate to dynamically update data part
         data = {
-            'keyword_pending': render_to_string('infoapp/bulk/pending_keywords.html', {'keyword_pending': keyword_pending}),
-            'running_keyword': render_to_string('infoapp/bulk/running_keywords.html', {'running_keyword': running_keyword}),
+            'keyword_pending': render_to_string('pending_keywords.html', {'keyword_pending': keyword_pending}),
+            'running_keyword': render_to_string('running_keywords.html', {'running_keyword': running_keyword}),
         }
 
         if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
