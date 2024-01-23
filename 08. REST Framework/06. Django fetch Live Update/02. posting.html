@@ -33,37 +33,45 @@
 
 
 <script>
-    function updateKeywords() {
-        const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+     // Call fetch and function untill finish keywords
+     // When finish keywords, funtion will stop, cause there is not `tr` in tablebody of keywords
+     // When submit any keyword reload page and `tr` will come in tablebody of keywords
+ async function updateKeywords() {
+    const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
 
-        // Check if there are any rows in the containers
-        const pendingContainer = document.getElementById('pending_keywords_container');
-        const runningContainer = document.getElementById('running_keywords_container');
+    // Check if there are any rows in the containers
+    const pendingContainer = document.getElementById('pending_keywords_container');
+    const runningContainer = document.getElementById('running_keywords_container');
 
-        const shouldContinueFetching = pendingContainer.querySelector('tr') || runningContainer.querySelector('tr');
+    const shouldContinueFetching = pendingContainer.querySelector('tr') || runningContainer.querySelector('tr');
 
-        if (!shouldContinueFetching) {
-            clearInterval(fetchInterval);  // Stop the periodic fetching
-            return;
-        }
+    if (!shouldContinueFetching) {
+        clearInterval(fetchInterval);  // Stop the periodic fetching
+        return;
+    }
 
-        fetch('{% url "info_bulk_posting" %}', {
+    try {
+        const response = await fetch('{% url "info_bulk_posting" %}', {
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
                 'X-CSRFToken': csrfToken
             }
-        })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('pending_keywords_container').innerHTML = data.keyword_pending;
-                document.getElementById('running_keywords_container').innerHTML = data.running_keyword;
-            })
-            .catch(error => console.error('Error fetching data:', error));
+        });
+
+        const data = await response.json();
+
+        document.getElementById('pending_keywords_container').innerHTML = data.keyword_pending;
+        document.getElementById('running_keywords_container').innerHTML = data.running_keyword;
+    } catch (error) {
+        console.error('Error fetching data:', error);
     }
+}
 
-    // Start periodic fetching
-    const fetchInterval = setInterval(updateKeywords, 5000);
+// Start periodic fetching
+const fetchInterval = setInterval(() => {
+    updateKeywords().catch(error => console.error('Error in interval:', error));
+}, 5000);
 
-    // Initial call to check and stop fetching if no rows initially
-    updateKeywords();
+// Initial call to check and stop fetching if no rows initially
+updateKeywords().catch(error => console.error('Error in initial call:', error));
 </script>
