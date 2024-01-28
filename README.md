@@ -35,6 +35,7 @@
 9. Python Indent (https://marketplace.visualstudio.com/items?itemName=KevinRose.vsc-python-indent)
 10. SQLite Viewer
 11. vscode-icons (https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons)
+12. Python Development Extensions Pack (https://marketplace.visualstudio.com/items?itemName=demystifying-javascript.python-extensions-pack)
 ```
 ## Postgre Setup
 ```
