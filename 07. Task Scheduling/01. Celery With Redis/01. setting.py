@@ -30,8 +30,9 @@ CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 
-# Need to run redis server before run celery
+# Need to run and check redis server before run celery
 >>> redis-server
+
 
 # After setup or update -> navigate to your Django project directory, and run the Celery worker
 >>> celery -A project_name worker -l info   # replace with your project name
