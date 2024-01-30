@@ -1,5 +1,8 @@
 # app_folder/tasks.py
 
+# Must be write code organize way
+# Must be seperate functions, instead of using inner function
+
 from celery import shared_task
 
 @shared_task
