@@ -40,7 +40,12 @@ CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 >>> celery -A project_name worker -l info                                 # replace project name (-l info / --loglevel=info )
 >>> celery -A project_name worker -l info --concurrency=10 -n worker1@%h  # Running 10 task in worker1
 >>> celery -A project_name worker -l info --concurrency=10 -n worker2@%h  # Running 10 task in worker2
-# 
+
+'''
+    But need to configure the targeted task
+    for _ in range(threads):
+        func.delay(arg)
+'''
 
 # Debug
 >>> celery -A project_name worker -l debug --concurrency=10 -n worker1@%h
