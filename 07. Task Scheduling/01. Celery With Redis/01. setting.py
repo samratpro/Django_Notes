@@ -37,8 +37,8 @@ CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 # After setup or update -> navigate to your Django project directory, and run the Celery worker
 # Must open a new separate terminal and use these command
 # All tasks with celery will show in this tab ---
->>> celery -A project_name worker -l info                                  # replace project name (-l info / --loglevel=info )
->>> celery -A project_name worker -l info --concurrency=10 -n worker1@%h   # Running 10 workers
+>>> celery -A project_name worker -l info                                 # replace project name (-l info / --loglevel=info )
+>>> celery -A project_name worker -l info --concurrency=10 -n worker1@%h  # Running 10 workers
 
 # Debug
 >>> celery -A project_name worker -l debug
