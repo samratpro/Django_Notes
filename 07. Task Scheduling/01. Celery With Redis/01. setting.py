@@ -38,8 +38,8 @@ CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 # Must open a new separate terminal and use these command
 # All tasks with celery will show in this tab ---
 >>> celery -A project_name worker -l info                                 # replace project name (-l info / --loglevel=info )
->>> celery -A project_name worker -l info --concurrency=10 -n worker1@%h  # Running 10 task in worker1
->>> celery -A project_name worker -l info --concurrency=10 -n worker2@%h  # Running 10 task in worker2
+>>> celery -A project_name worker -l info --concurrency=10 -n worker1@%h  # Running 10 task in worker1  @%h = hostname
+>>> celery -A project_name worker -l info --concurrency=10 -n worker2     # Running 10 task in worker2
 
 '''
     But need to configure the targeted task
