@@ -16,3 +16,5 @@ class Info_Bulk_Posting_Serializer(serializers.Serializer):
     post_status = serializers.CharField(max_length=200)
     img_status = serializers.CharField(max_length=200)
 
+
+# ----- After any change or add serializer field need to do database migrations -----
