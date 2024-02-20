@@ -35,7 +35,8 @@
                 },
                 body: JSON.stringify({ input_text : input_text })
             });
-        
+
+            // response.ok if return under 201 from Views status
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
