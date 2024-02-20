@@ -36,7 +36,7 @@
                 body: JSON.stringify({ input_text : input_text })
             });
 
-            // response.ok if return under 201 from Views status
+            // response.ok will true, if return under 201 from rest_framework import status in views.py
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
