@@ -7,4 +7,5 @@ def my_periodic_task():
 
 
 # Run task
-huey_consumer.py tasks.huey --threads 4
+# Run command  ------------
+# python manage.py run_huey
