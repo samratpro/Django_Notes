@@ -48,3 +48,7 @@ from redis import ConnectionPool
 pool = ConnectionPool(host='my.redis.host', port=6379, max_connections=20)
 HUEY = RedisHuey('my-app', connection_pool=pool)
 
+
+
+# Run command  ------------
+# python manage.py run_huey
