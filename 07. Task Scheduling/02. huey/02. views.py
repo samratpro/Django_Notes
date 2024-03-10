@@ -17,3 +17,9 @@ def bulk_posting(request):
             return redirect('posting')
     else:
         return render(request, template, context=context)
+
+
+def my_view(request):
+    # In the view, schedule the async task to run
+    my_async_task(request=request)
+    return HttpResponse(...)
