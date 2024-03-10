@@ -39,3 +39,12 @@ HUEY = {
         'health_check_interval': 1,  # Check worker health every second.
     },
 }
+
+
+# alternative configuration method
+from huey import RedisHuey
+from redis import ConnectionPool
+
+pool = ConnectionPool(host='my.redis.host', port=6379, max_connections=20)
+HUEY = RedisHuey('my-app', connection_pool=pool)
+
