@@ -9,6 +9,17 @@ Source scripts/env/activate
 # Django install..
 pip install django
 
+# Install Django Extensions Package It will help to clear pyc and cache (Optional)
+'''
+pip install django-extensions
+
+settings.py File
+INSTALLED_APPS = (
+  ...
+  'django_extensions',
+  ...
+)
+'''
 # Django Project Create..
 django-admin startproject "projectname" .
 
