@@ -1,13 +1,16 @@
 # Creating Invirment
-python -m venv env
+>>> python -m venv env
 
 # Active envirment
-Source scripts/env/activate
+>>> Source scripts/env/activate
+
+# if need deactivate
+>>> deactivate
 
 
 #Commands---------------------------------------
 # Django install..
-pip install django
+>>> pip install django
 
 # Install Django Extensions Package It will help to clear pyc and cache (Optional)
 '''
@@ -21,13 +24,13 @@ INSTALLED_APPS = (
 )
 '''
 # Django Project Create..
-django-admin startproject "projectname" .
+>>> django-admin startproject "projectname" .
 
 # Django App Creating..
-python manage.py startapp "appname"
+>>> python manage.py startapp "appname"
 
 # Server Running..
-python manage.py runserver     # python manage.py runserver 0.0.0.0:8000 --noreload
+>>> python manage.py runserver     # python manage.py runserver 0.0.0.0:8000 --noreload
 
 # Server Stop
 # Ctrl + C
@@ -38,12 +41,12 @@ delete db migrations or db
 then delete all files from the migration folder of the app folder without __init__.py
 
 # For database update and first time need to run this command
-python manage.py makemigrations
-python manage.py migrate
+>>> python manage.py makemigrations
+>>> python manage.py migrate
 
 # For Admin
-python manage.py createsuperuser
-winpty python manage.py createsuperuser 
+>>> python manage.py createsuperuser
+>>> winpty python manage.py createsuperuser 
 
 
 # Important folders..
@@ -54,7 +57,7 @@ static
 
 # For static update, especially need when application in server
 # After any File update of static folder, CSS, JS, Images need to run this command
-python manage.py collectstatic
+>>> python manage.py collectstatic
 # We can use this command either image shows from static folder or database
 # <img src="{% if request.user.profile_image %}{{request.user.profile_image.url}}{% else %}{% static "images/profile/user.png" %}{% endif %}" alt="" width="35" height="35" class="rounded-circle">
 
