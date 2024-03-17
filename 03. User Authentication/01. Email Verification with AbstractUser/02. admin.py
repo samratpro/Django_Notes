@@ -15,7 +15,7 @@ admin.site.site_header = 'AI Writing Project'
 from django.contrib.auth.admin import UserAdmin
 class AppUserAdmin(UserAdmin):
     model = AppUser
-    list_display = ('email', 'first_name', 'last_name', 'is_active', 'is_staff', 'is_superuser',)
+    list_display = ('email', 'first_name', 'last_name', 'is_active', 'is_staff', 'is_superuser',)  # Must keep comma (,) in last to avoid tuple error
     search_fields = ('email', 'first_name', 'last_name',)
     ordering = ('email',)
     filter_horizontal = ('groups', 'user_permissions',)
