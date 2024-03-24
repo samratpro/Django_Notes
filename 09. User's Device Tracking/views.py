@@ -11,6 +11,9 @@ def ip(request):
     visitor_ip = request.META.get('REMOTE_ADDR')
     client_ip, status = get_client_ip(request)
 
+    # browser_fingerprint
+    browser_fingerprint = fingerprint.get(request)
+
     # Get device information
     user_agent = get_user_agent(request)
     device = user_agent.device
@@ -22,5 +25,6 @@ def ip(request):
     response += f"<h2>Device: {device}</h2><br>"
     response += f"<h2>Browser: {browser}</h2><br>"
     response += f"<h2>Operating System: {os}</h2>"
+    response += f"<h2>Browser Fingerprint: {browser_fingerprint}</h2>"
 
     return HttpResponse(response)
