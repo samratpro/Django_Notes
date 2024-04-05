@@ -2,6 +2,7 @@
 from .task import *
 import threading
 
+# Lock will ensure each task work 
 scheduler_thread = None  
 lock = threading.Lock()
 def bulkpost(request):
