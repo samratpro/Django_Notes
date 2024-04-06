@@ -2,14 +2,14 @@
 pip install django-ckeditor
 ```
 ## setting.py
-```
+```py
 INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     ]
 ```
 ## setting.py
-```
+```py
 # CKEditor Settings >>>>>>>>>>>>>>>>
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 CKEDITOR_IMAGE_BACKEND = "pillow"
