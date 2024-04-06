@@ -18,7 +18,6 @@ class PostCetgory(models.Model):
 
 class BlogPost(models.Model):
     post_serial = models.AutoField(primary_key=True)  # Auto-incrementing serial number, 1,2,3,4,5,6....
-
     
     # If user will delete, all associate post will delete for ` on_delete=models.CASCADE `
     # When a model's two field get same ForeignKey the ` related_name='written_by' ` is mendatory to avoid system error
