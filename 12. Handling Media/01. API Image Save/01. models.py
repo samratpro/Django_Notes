@@ -8,7 +8,8 @@ class generated_news_list(models.Model):
 
     def __str__(self):
         return self.name
-
+        
+    # When delete, also deleting Image from directory
     def delete(self, *args, **kwargs):
         for i in range(1,4):
             field_name = f"image_url{str(i)}"
