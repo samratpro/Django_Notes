@@ -1,4 +1,4 @@
-```
+```bash
 pip install django-ckeditor
 ```
 ## setting.py
@@ -28,7 +28,7 @@ CKEDITOR_CONFIGS = {
 ```
 
 ## models.py
-```
+```py
 from ckeditor_uploader.fields import RichTextUploadingField
 class MyModel(models.Model):
     title = models.CharField(max_length=100)
@@ -37,7 +37,7 @@ class MyModel(models.Model):
         return self.name
 ```
 ## project > urls.py
-```
+```py
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
@@ -47,13 +47,13 @@ urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ```
 ## command
-```
+```bash
 python manage.py collectstatic
 python manage.py makemigrations
 python manage.py migrate
 ```
 # CK-Editor in HTML
-```
+```html
 {% extends 'dashboard.html' %}
 {% block dashboardcontent %}
 {% load static %}
@@ -71,7 +71,7 @@ python manage.py migrate
 {% endblock dashboardcontent %}
 ```
 ## Also we can get data from HTML CK-Editor and save in Database, views.py
-```
+```py
 def save_content(request):
     if request.method == 'POST':
         content = request.POST.get('content')
