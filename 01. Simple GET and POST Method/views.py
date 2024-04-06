@@ -11,7 +11,7 @@ def function_name(arg):
   return operation
 
 
-# Template Rendering Function
+# Template Rendering Function..............
 def home(request):
     template = 'NewApp/home.html'
     
@@ -25,7 +25,7 @@ def home(request):
     return render(request, template, contex) # Return for Templates
 
 
-# Template Rendering Function
+# Template Rendering Function............
 def contact(request):
     template = 'NewApp/home.html'
     
@@ -37,3 +37,22 @@ def contact(request):
         contex = {}
         
     return render(request, template, contex) # Return for Templates
+
+
+
+# Two Form Submit Button .................
+def complete_generated_single_view(request, id):
+    if request.method == 'POST':
+        action = request.POST.get('action')
+
+        if action == 'send':
+            # Logic for sending the news to the website
+            pass
+        elif action == 'update':
+            # Logic for updating the news
+            pass
+        else:
+            # Handle invalid action
+
+    # Remain code in template.html
+
