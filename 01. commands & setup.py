@@ -1,5 +1,7 @@
 # Creating Invirment
->>> python -m venv env
+'''py
+python -m venv env
+'''
 
 # Active envirment
 >>> Source scripts/env/activate
