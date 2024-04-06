@@ -2,7 +2,7 @@
 
 | Method                   | Example Code                                 | Description                                                                      |
 |--------------------------|----------------------------------------------|----------------------------------------------------------------------------------|
-| `all`                    | `MyModel.objects.all()`                     | Returns all objects in the QuerySet                                              |
+| `all`                    | py`MyModel.objects.all()`                     | Returns all objects in the QuerySet                                              |
 | `first`                    | `MyModel.objects.all().first()`                     | Returns first data                                         |
 | `exist`                    | `MyModel.objects.all().exists()`                     | Returns if exist database                                        |
 | `filter`                 | `MyModel.objects.filter(field=value)`       | Filters the QuerySet by the specified field and value                            |
