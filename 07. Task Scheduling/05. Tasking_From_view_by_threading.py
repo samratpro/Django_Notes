@@ -2,9 +2,7 @@
 from .task import *
 import threading
 
-# Lock will ensure each task work 
-scheduler_thread = None  
-lock = threading.Lock()
+
 def bulkpost(request):
     template = 'bulkpost.html'
     keyword_pending = BulkKeywordModel.objects.filter(status='Pending')
@@ -19,9 +17,6 @@ def bulkpost(request):
             if keyword:
                 BulkKeywordModel.objects.create(name=keyword, status='Pending')
 
-        global scheduler_thread
-        with lock:
-            if scheduler_thread is None or not scheduler_thread.is_alive():
                 # Start the task scheduler in a separate thread
                 scheduler_thread = threading.Thread(target=BulkDatasJob)      #  We can also input BulkDatasJob function's argument
                 # scheduler_thread = threading.Thread(target=BulkDatasJob, args=('arg',)) 
