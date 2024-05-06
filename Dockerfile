@@ -18,3 +18,6 @@ CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 # docker build -t projectname -f Dockerfile.extension .         (When custom docker file name )
 # docker run projectname                                        (normally run docker image)
 # docker run -p 8000:8000 projectname                           (run for django)
+# docker images
+# docker tag 2fdcb7e7b2f7 samratpro/docker-test
+# docker push samratpro/docker-test
