@@ -14,4 +14,9 @@ COPY . .
 EXPOSE 8000
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 
-# docker build -t dockerapp -f Dockerfile.alpine .
+
+# docker build -t projectname .                         (normal case)
+# docker build -t dockerapp -f Dockerfile.alpine .      (when custom docker file)
+# docker run projectname                                (normally run docker image)
+# docker run -p 8000:8000 projectname                   (run for django)
+# docker system prune -a --volumes --force
