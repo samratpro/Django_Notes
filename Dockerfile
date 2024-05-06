@@ -12,3 +12,9 @@ COPY . .
 
 EXPOSE 8000
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
+
+# docker build -t projectname .                                 (normal case)
+# docker build -t projectname -f Dockerfile.extension .         (When custom docker file name )
+# docker run projectname                                        (normally run docker image)
+# docker run -p 8000:8000 projectname                           (run for django)
