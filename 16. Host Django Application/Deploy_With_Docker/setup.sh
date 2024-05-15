@@ -39,7 +39,7 @@ echo "django-admin startproject $1 ."
 django-admin startproject $1 .
 
 echo "Tweaking the files:"
-mv env.template .env
+mv env.template .env         # This command renames the file env.template to .env, presumably as a configuration file.
 awk '$0 == "# SECURITY WARNING: keep the secret key used in production secret!" {i=1;next}; i && i++ < 2' ./$1/$1/settings.py | tr -d '[:space:]' >> .env
 mkdir tmp_files
 mv $1/* tmp_files && rm -r $1
